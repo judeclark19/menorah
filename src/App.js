@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+//Components
+import styled from "styled-components";
+
+//images
+import MenorahFull from "./images/Menorah-full.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppDiv>
+      <MenorahImg>
+        <img src={MenorahFull}></img>
+      </MenorahImg>
+    </AppDiv>
   );
 }
+
+const AppDiv = styled.div`
+  /* border: 3px dashed orange; */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(180deg, #252a26, #1c211d);
+`;
+
+const MenorahImg = styled.div`
+  height: 80%;
+  /* max-width: 100vw; */
+  /* border: 2px solid red; */
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+`;
 
 export default App;
