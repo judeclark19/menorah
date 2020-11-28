@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import { motion } from "framer-motion";
+import { fadeIn } from "./animations";
+
 //Components
 import styled from "styled-components";
 import Menorah from "./components/Menorah";
@@ -21,16 +24,24 @@ function App() {
 
   return (
     <AppDiv style={{ backgroundColor: backgroundColors[candlesLit] }}>
-      <BodyDiv>
+      <BodyDiv
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
+      >
         <Menorah candlesLit={candlesLit} setCandlesLit={setCandlesLit} />
-        <div className="buttons">
-          <button
+        <motion.div
+          className="buttons"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 1 } }}
+        >
+          <motion.button
+            whileHover={{ scale: 1.1 }}
             onClick={() => {
               setCandlesLit(0);
             }}
           >
             0
-          </button>
+          </motion.button>
           <button
             onClick={() => {
               setCandlesLit(1);
@@ -87,21 +98,17 @@ function App() {
           >
             8
           </button>
-        </div>
+        </motion.div>
       </BodyDiv>
     </AppDiv>
   );
 }
 
 const AppDiv = styled.div`
-  /* border: 3px dashed orange; */
   height: 100vh;
-  /* background-color: #020305; */
-
-  /* background-image: linear-gradient(180deg, #252a26, #1c211d); */
 `;
 
-const BodyDiv = styled.div`
+const BodyDiv = styled(motion.div)`
   /* height: 80%; */
   /* max-width: 100vw; */
   display: flex;
