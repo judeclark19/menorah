@@ -1,19 +1,34 @@
+import React, { useState } from "react";
+
 //Components
 import styled from "styled-components";
+import Menorah from "./components/Menorah";
 
 //images
 import MenorahEmpty from "./images/Menorah-empty.svg";
 import MenorahFull from "./images/Menorah-full.svg";
 
 function App() {
+  const [candlesLit, setCandlesLit] = useState(0);
   return (
     <AppDiv>
       <MenorahDiv>
-        {/* <img src={MenorahFull} alt="all candles lit"></img> */}
-        <img src={MenorahEmpty} alt="no candles lit"></img>
+        <Menorah candlesLit={candlesLit} setCandlesLit={setCandlesLit} />
         <div className="buttons">
-          <button>On</button>
-          <button>Off</button>
+          <button
+            onClick={() => {
+              setCandlesLit(8);
+            }}
+          >
+            On
+          </button>
+          <button
+            onClick={() => {
+              setCandlesLit(0);
+            }}
+          >
+            Off
+          </button>
         </div>
       </MenorahDiv>
     </AppDiv>
