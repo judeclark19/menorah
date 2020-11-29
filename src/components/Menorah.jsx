@@ -38,7 +38,7 @@ const flameVariants = {
   visible: { scale: 1, transition: { duration: 2 } },
 };
 
-function Menorah({ candlesLit }) {
+function Menorah({ candlesLit, shamashLit }) {
   return (
     <AnimatePresence>
       <svg
@@ -547,7 +547,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- 1st candle flame --> */}
-                {candlesLit && (
+                {candlesLit >= 1 && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -579,7 +579,7 @@ function Menorah({ candlesLit }) {
 
               {/* <!-- 1st candle corona --> */}
 
-              {candlesLit && (
+              {candlesLit >= 1 && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"
@@ -612,7 +612,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- 2nd candle flame --> */}
-                {candlesLit && (
+                {candlesLit >= 2 && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -641,7 +641,7 @@ function Menorah({ candlesLit }) {
                 />
               </g>
               {/* <!-- 2nd candle corona --> */}
-              {candlesLit && (
+              {candlesLit >= 2 && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"
@@ -674,7 +674,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- 3rd candle flame --> */}
-                {candlesLit && (
+                {candlesLit >= 3 && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -703,7 +703,7 @@ function Menorah({ candlesLit }) {
                 />
               </g>
               {/* <!-- 3rd candle corona --> */}
-              {candlesLit && (
+              {candlesLit >= 3 && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"
@@ -736,7 +736,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- 4th candle flame --> */}
-                {candlesLit && (
+                {candlesLit >= 4 && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -765,7 +765,7 @@ function Menorah({ candlesLit }) {
                 />
               </g>
               {/* <!-- 4th candle corona --> */}
-              {candlesLit && (
+              {candlesLit >= 4 && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"
@@ -798,7 +798,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- 8th candle flame --> */}
-                {candlesLit && (
+                {candlesLit >= 8 && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -829,7 +829,7 @@ function Menorah({ candlesLit }) {
               </g>
 
               {/* <!-- 8th candle corona --> */}
-              {candlesLit && (
+              {candlesLit >= 8 && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"
@@ -862,7 +862,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- 7th candle flame --> */}
-                {candlesLit && (
+                {candlesLit >= 7 && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -891,7 +891,7 @@ function Menorah({ candlesLit }) {
                 />
               </g>
               {/* <!-- 7th candle corona --> */}
-              {candlesLit && (
+              {candlesLit >= 7 && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"
@@ -924,7 +924,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- 6th candle flame --> */}
-                {candlesLit && (
+                {candlesLit >= 6 && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -953,7 +953,7 @@ function Menorah({ candlesLit }) {
                 />
               </g>
               {/* <!-- 6th candle corona --> */}
-              {candlesLit && (
+              {candlesLit >= 6 && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"
@@ -986,7 +986,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- 5th candle flame --> */}
-                {candlesLit && (
+                {candlesLit >= 5 && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -1015,7 +1015,7 @@ function Menorah({ candlesLit }) {
                 />
               </g>
               {/* <!-- 5th candle corona --> */}
-              {candlesLit && (
+              {candlesLit >= 5 && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"
@@ -1048,7 +1048,7 @@ function Menorah({ candlesLit }) {
             <g>
               <g>
                 {/* <!-- shamash flame --> */}
-                {candlesLit && (
+                {shamashLit && (
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
@@ -1077,7 +1077,7 @@ function Menorah({ candlesLit }) {
                 />
               </g>
               {/* <!-- shamash corona --> */}
-              {candlesLit && (
+              {shamashLit && (
                 <motion.g
                   variants={coronaVariants}
                   initial="hidden"

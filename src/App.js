@@ -8,7 +8,8 @@ import styled from "styled-components";
 import Menorah from "./components/Menorah";
 
 function App() {
-  const [candlesLit, setCandlesLit] = useState(false);
+  const [candlesLit, setCandlesLit] = useState(0);
+  const [shamashLit, setShamashLit] = useState(false);
 
   const backgroundColors = [
     "#020305",
@@ -23,25 +24,37 @@ function App() {
   ];
 
   return (
-    <AppDiv style={{ backgroundColor: backgroundColors[candlesLit] }}>
+    <AppDiv
+      style={{
+        transition: "background-color 2s ease",
+        backgroundColor: backgroundColors[candlesLit],
+      }}
+    >
       <BodyDiv
       // initial={{ opacity: 0, scale: 0.5 }}
       // animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
       >
-        <Menorah candlesLit={candlesLit} setCandlesLit={setCandlesLit} />
+        <Menorah candlesLit={candlesLit} shamashLit={shamashLit} />
         <motion.div
           className="buttons"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
         >
-          {/* <motion.button
-            whileHover={{ scale: 1.1 }}
+          <button
+            onClick={() => {
+              setShamashLit(!shamashLit);
+            }}
+          >
+            Shamash
+          </button>
+          <br />
+          <button
             onClick={() => {
               setCandlesLit(0);
             }}
           >
             0
-          </motion.button>
+          </button>
           <button
             onClick={() => {
               setCandlesLit(1);
@@ -97,9 +110,9 @@ function App() {
             }}
           >
             8
-          </button> */}
+          </button>
 
-          <button
+          {/* <button
             onClick={() => {
               setCandlesLit(false);
             }}
@@ -113,7 +126,7 @@ function App() {
             }}
           >
             on
-          </button>
+          </button> */}
         </motion.div>
       </BodyDiv>
     </AppDiv>
