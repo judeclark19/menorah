@@ -1,18 +1,8 @@
 import React from "react";
 
-import styled from "styled-components";
+// import styled from "styled-components";
+import "./Menorah.css";
 import { motion, AnimatePresence } from "framer-motion";
-
-//images
-import Menorah0 from "../images/Menorah-0.svg";
-import Menorah1 from "../images/Menorah-1.svg";
-import Menorah2 from "../images/Menorah-2.svg";
-import Menorah3 from "../images/Menorah-3.svg";
-import Menorah4 from "../images/Menorah-4.svg";
-import Menorah5 from "../images/Menorah-5.svg";
-import Menorah6 from "../images/Menorah-6.svg";
-import Menorah7 from "../images/Menorah-7.svg";
-import Menorah8 from "../images/Menorah-8.svg";
 
 //Variants
 const containerVariants = {
@@ -31,11 +21,19 @@ const coronaVariants = {
     opacity: 1,
     transition: { duration: 2 },
   },
+  whileHover: {
+    scale: 1.2,
+    transition: { duration: 1 },
+  },
 };
 
 const flameVariants = {
   hidden: { scale: 0, transition: { duration: 2 } },
   visible: { scale: 1, transition: { duration: 2 } },
+  whileHover: {
+    scale: 1.2,
+    transition: { duration: 1 },
+  },
 };
 
 function Menorah({ candlesLit, shamashLit }) {
@@ -53,6 +51,7 @@ function Menorah({ candlesLit, shamashLit }) {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          whileHover="whileHover"
         >
           {/* <!-- background color --> */}
           {/* <rect fill="white" width="100%" height="1400" /> */}
@@ -552,6 +551,8 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
+                    onHoverStart={() => console.log("Hover starts")}
                   >
                     <path
                       fill="#FEFEDE"
@@ -584,6 +585,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -617,6 +619,7 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
                   >
                     <path
                       fill="#FEFEDE"
@@ -646,6 +649,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -679,6 +683,7 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
                   >
                     <path
                       fill="#FEFEDE"
@@ -708,6 +713,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -741,6 +747,7 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
                   >
                     <path
                       fill="#FEFEDE"
@@ -770,6 +777,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -803,6 +811,7 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
                   >
                     <path
                       fill="#FEFEDE"
@@ -834,6 +843,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -867,6 +877,7 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
                   >
                     <path
                       fill="#FEFEDE"
@@ -896,6 +907,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -929,6 +941,7 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
                   >
                     <path
                       fill="#FEFEDE"
@@ -958,6 +971,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -991,6 +1005,7 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
                   >
                     <path
                       fill="#FEFEDE"
@@ -1020,6 +1035,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -1045,7 +1061,16 @@ function Menorah({ candlesLit, shamashLit }) {
                 </motion.g>
               )}
             </g>
-            <g>
+            <motion.g
+              id="shamash-group"
+              drag
+              onDrag={(event, info) => console.log(info.point.x, info.point.y)}
+              //   onDragEnd={(event, info) =>
+              //     console.log(info.point.x, info.point.y)
+              //   }
+              dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+              dragElastic={1.7}
+            >
               <g>
                 {/* <!-- shamash flame --> */}
                 {shamashLit && (
@@ -1053,13 +1078,16 @@ function Menorah({ candlesLit, shamashLit }) {
                     variants={flameVariants}
                     initial="hidden"
                     animate="visible"
+                    whileHover="whileHover"
                   >
                     <path
+                      id="shamash__outer-flame"
                       fill="#FEFEDE"
                       d="M864,219.6l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
 					c4.7,4.7,12.4,4.7,17.2,0l2.7-2.7C864.8,229.3,865.8,224.2,864,219.6z"
                     />
                     <path
+                      id="shamash__inner-flame"
                       fill="#F0CF85"
                       d="M849.4,234.7c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
 					l6.3,15.5c0.7,1.8,0.3,3.9-1.1,5.3l-3.2,3.2C852.5,234.4,851,234.9,849.4,234.7z"
@@ -1082,6 +1110,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   variants={coronaVariants}
                   initial="hidden"
                   animate="visible"
+                  whileHover="whileHover"
                 >
                   <circle
                     opacity="0.1"
@@ -1106,7 +1135,7 @@ function Menorah({ candlesLit, shamashLit }) {
                   />
                 </motion.g>
               )}
-            </g>
+            </motion.g>
           </g>
         </motion.g>
       </svg>
