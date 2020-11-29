@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn } from "./animations";
 
 //Components
@@ -8,7 +8,7 @@ import styled from "styled-components";
 import Menorah from "./components/Menorah";
 
 function App() {
-  const [candlesLit, setCandlesLit] = useState(0);
+  const [candlesLit, setCandlesLit] = useState(false);
 
   const backgroundColors = [
     "#020305",
@@ -25,8 +25,8 @@ function App() {
   return (
     <AppDiv style={{ backgroundColor: backgroundColors[candlesLit] }}>
       <BodyDiv
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
+      // initial={{ opacity: 0, scale: 0.5 }}
+      // animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
       >
         <Menorah candlesLit={candlesLit} setCandlesLit={setCandlesLit} />
         <motion.div
@@ -34,7 +34,7 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
         >
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.1 }}
             onClick={() => {
               setCandlesLit(0);
@@ -97,6 +97,22 @@ function App() {
             }}
           >
             8
+          </button> */}
+
+          <button
+            onClick={() => {
+              setCandlesLit(false);
+            }}
+          >
+            off
+          </button>
+
+          <button
+            onClick={() => {
+              setCandlesLit(true); //
+            }}
+          >
+            on
           </button>
         </motion.div>
       </BodyDiv>
@@ -115,12 +131,12 @@ const BodyDiv = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5rem;
+  padding: 3rem;
   height: 100%;
   width: 100%;
   /* border: 2px solid red; */
 
-  @media (max-width: 800px) {
+  @media (max-width: 600px) {
     padding: 5rem 0rem;
   }
 
