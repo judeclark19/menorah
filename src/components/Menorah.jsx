@@ -36,7 +36,15 @@ const flameVariants = {
   },
 };
 
-function Menorah({ candlesLit, shamashLit }) {
+// const shamashVariants = {
+//   initial: { rotate: 0 },
+//   animate: { rotate: 90 },
+// };
+
+function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
+  const dragOverFunc = () => {
+    console.log("drag over funk!");
+  };
   return (
     <AnimatePresence>
       <svg
@@ -569,7 +577,7 @@ function Menorah({ candlesLit, shamashLit }) {
 
                 {/* <!-- 1st candle wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#d5e3ec"
                   d="M468,342.3h-31c-5,0-9,4-9,9v131.8H477V351.3C477,346.3,473,342.3,468,342.3z"
                 />
                 <path
@@ -635,7 +643,7 @@ function Menorah({ candlesLit, shamashLit }) {
                 )}
                 {/* <!-- 2nd candle wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#d5e3ec"
                   d="M568.7,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C577.7,346.3,573.7,342.3,568.7,342.3z"
                 />
                 <path
@@ -699,7 +707,7 @@ function Menorah({ candlesLit, shamashLit }) {
                 )}
                 {/* <!-- 3rd candle wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#d5e3ec"
                   d="M667.8,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C676.9,346.3,672.8,342.3,667.8,342.3z"
                 />
                 <path
@@ -763,7 +771,7 @@ function Menorah({ candlesLit, shamashLit }) {
                 )}
                 {/* <!-- 4th candle wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#d5e3ec"
                   d="M767,342.3h-31c-5,0-9,4-9,9v131.8H776V351.3C776,346.3,772,342.3,767,342.3z"
                 />
                 <path
@@ -828,7 +836,7 @@ function Menorah({ candlesLit, shamashLit }) {
 
                 {/* <!-- 8th candle wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#d5e3ec"
                   d="M1232,342.3h31c5,0,9,4,9,9v131.8H1223V351.3C1223,346.3,1227,342.3,1232,342.3z"
                 />
                 <path
@@ -893,7 +901,7 @@ function Menorah({ candlesLit, shamashLit }) {
                 )}
                 {/* <!-- 7th candle wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#d5e3ec"
                   d="M1131.3,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1122.3,346.3,1126.3,342.3,1131.3,342.3z"
                 />
                 <path
@@ -957,7 +965,7 @@ function Menorah({ candlesLit, shamashLit }) {
                 )}
                 {/* <!-- 6th candle wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#d5e3ec"
                   d="M1032.2,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1023.1,346.3,1027.2,342.3,1032.2,342.3z"
                 />
                 <path
@@ -1021,7 +1029,7 @@ function Menorah({ candlesLit, shamashLit }) {
                 )}
                 {/* <!-- 5th candle wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#d5e3ec"
                   d="M933,342.3h31c5,0,9,4,9,9v131.8H924V351.3C924,346.3,928,342.3,933,342.3z"
                 />
                 <path
@@ -1064,10 +1072,15 @@ function Menorah({ candlesLit, shamashLit }) {
             <motion.g
               id="shamash-group"
               drag
-              onDrag={(event, info) => console.log(info.point.x, info.point.y)}
-              //   onDragEnd={(event, info) =>
-              //     console.log(info.point.x, info.point.y)
-              //   }
+              onDragStart={(event, info) => {
+                setShamashActive(true);
+              }}
+              onDrag={(event, info) => {
+                console.log(info.point.x, info.point.y);
+              }}
+              onDragEnd={(event, info) => {
+                setShamashActive(false);
+              }}
               dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
               dragElastic={1.7}
             >
@@ -1096,7 +1109,7 @@ function Menorah({ candlesLit, shamashLit }) {
                 )}
                 {/* <!-- shamash wick and wax --> */}
                 <path
-                  fill="#9AC5E3"
+                  fill="#7daaca"
                   d="M865.6,244.8h-31c-5,0-9,4-9,9v131.8h49.1V253.8C874.6,248.8,870.6,244.8,865.6,244.8z"
                 />
                 <path

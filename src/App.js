@@ -10,6 +10,7 @@ import Menorah from "./components/Menorah";
 function App() {
   const [candlesLit, setCandlesLit] = useState(0);
   const [shamashLit, setShamashLit] = useState(false);
+  const [shamashActive, setShamashActive] = useState(false);
 
   const backgroundColors = [
     "#020305",
@@ -34,7 +35,12 @@ function App() {
       // initial={{ opacity: 0, scale: 0.5 }}
       // animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
       >
-        <Menorah candlesLit={candlesLit} shamashLit={shamashLit} />
+        <Menorah
+          candlesLit={candlesLit}
+          shamashLit={shamashLit}
+          shamashActive={shamashActive}
+          setShamashActive={setShamashActive}
+        />
         <motion.div
           className="buttons"
           initial={{ opacity: 0 }}
