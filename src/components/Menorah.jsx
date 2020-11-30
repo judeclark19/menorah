@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 //Variants
 const containerVariants = {
-  hidden: { scale: 0, transition: { duration: 2 } },
-  visible: { scale: 1, transition: { duration: 0.5, staggerChildren: 1 } },
+  hidden: { transition: { duration: 2 } },
+  visible: { transition: { duration: 0.5, staggerChildren: 1 } },
 };
 
 const coronaVariants = {
@@ -42,9 +42,6 @@ const flameVariants = {
 // };
 
 function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
-  const dragOverFunc = () => {
-    console.log("drag over funk!");
-  };
   return (
     <AnimatePresence>
       <svg
@@ -574,7 +571,23 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                     />
                   </motion.g>
                 )}
-
+                {/* <circle
+                  id="candle_one__hit-box"
+                  fill="red"
+                  cx="453"
+                  cy="319"
+                  r="25"
+                  onDragEnter={() => {
+                    console.log("triggered");
+                  }}
+                />
+                <circle
+                  id="candle_one__hit-point"
+                  fill="green"
+                  cx="453"
+                  cy="319"
+                  r="5"
+                /> */}
                 {/* <!-- 1st candle wick and wax --> */}
                 <path
                   fill="#d5e3ec"
@@ -1075,14 +1088,17 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               onDragStart={(event, info) => {
                 setShamashActive(true);
               }}
-              onDrag={(event, info) => {
-                console.log(info.point.x, info.point.y);
-              }}
+              // onDrag={(event, info) => {
+              //   console.log(info.point.x, info.point.y);
+              // }}
               onDragEnd={(event, info) => {
                 setShamashActive(false);
               }}
               dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-              dragElastic={1.7}
+              dragElastic={2}
+              animate={{
+                rotate: shamashActive ? -70 : 0,
+              }}
             >
               <g>
                 {/* <!-- shamash flame --> */}
@@ -1107,6 +1123,20 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                     />
                   </motion.g>
                 )}
+                {/* <circle
+                  id="shamash__hit-box"
+                  fill="red"
+                  cx="850"
+                  cy="221.5"
+                  r="25"
+                />
+                <circle
+                  id="shamash__hit-point"
+                  fill="green"
+                  cx="850"
+                  cy="221.5"
+                  r="5"
+                /> */}
                 {/* <!-- shamash wick and wax --> */}
                 <path
                   fill="#7daaca"
