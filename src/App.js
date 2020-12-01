@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 //Components
 import styled from "styled-components";
 import Menorah from "./components/Menorah";
+import Modal from "./components/Modal";
 
 function App() {
   const [candlesLit, setCandlesLit] = useState(0);
@@ -12,6 +13,7 @@ function App() {
   const [shamashLit, setShamashLit] = useState(false);
   const [shamashBobbing, setShamashBobbing] = useState(false);
   const [shamashActive, setShamashActive] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   setTimeout(() => {
     setCandlesBobbing(candlesLit);
@@ -46,6 +48,9 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 2 } }}
       >
+        {showModal && (
+          <Modal showModal={showModal} setShowModal={setShowModal} />
+        )}
         <AnimatePresence>
           <Menorah
             candlesLit={candlesLit}
@@ -172,12 +177,20 @@ function App() {
           >
             <span id="clear-btn">Clear all candles</span>
           </StyledButton>
-          <p className="instructions">
+          <StyledButton
+            // className={candlesLit === 0 ? "active-btn" : ""}
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
+            Modal
+          </StyledButton>
+          {/* <p className="instructions">
             Click the buttons to light the corresponding candle.
             <br />
             <br />
             For best results, add the candles one at a time.
-          </p>
+          </p> */}
           <p>
             Created by <a href="https://github.com/judeclark19">Jude Clark</a>
           </p>
@@ -244,7 +257,7 @@ const ButtonDiv = styled(motion.div)`
 
 const StyledButton = styled(motion.button)`
   font-size: 1.5rem;
-  padding: 0.4rem 0.7rem;
+  padding: 0.2rem 0.7rem;
   background-color: transparent;
   color: #bc9357;
   margin: 5px;
