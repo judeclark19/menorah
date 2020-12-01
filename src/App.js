@@ -151,6 +151,9 @@ function App() {
             className={shamashLit ? "active-btn" : ""}
             onClick={() => {
               setShamashLit(!shamashLit);
+              if (shamashBobbing) {
+                setShamashBobbing(false);
+              }
               startShamashBobbing();
             }}
           >
@@ -209,7 +212,7 @@ const BodyDiv = styled(motion.div)`
     color: #bc9357;
 
     &.instructions {
-      font-size: 15pt;
+      font-size: 14pt;
       font-weight: bold;
     }
   }
@@ -217,9 +220,11 @@ const BodyDiv = styled(motion.div)`
 
 const ButtonDiv = styled(motion.div)`
   /* border: 1px dashed red; */
+  /* background-color: #010102; */
+  border-radius: 0.5rem;
   text-align: center;
-  padding: 1rem;
-  max-height: 20vh;
+  padding: 0.5rem;
+  /* max-height: 20vh; */
   margin-top: 30px;
   margin-bottom: 30px;
   /* overflow: hidden; */
