@@ -14,7 +14,7 @@ function App() {
   const [shamashLit, setShamashLit] = useState(false);
   const [shamashBobbing, setShamashBobbing] = useState(false);
   const [shamashActive, setShamashActive] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   setTimeout(() => {
     setCandlesBobbing(candlesLit);
@@ -217,6 +217,10 @@ const BodyDiv = styled(motion.div)`
 
   @media (max-width: 600px) {
     padding: 5rem 0rem;
+  }
+
+  a {
+    color: white;
   }
   h1 {
     color: #7daaca;
