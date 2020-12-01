@@ -3,6 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 
+import demoGIF from "./demo_gif.gif";
+
 const modalBGVariants = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
 const modalVariants = { hidden: { y: -1000 }, visible: { y: 0 } };
 
@@ -21,7 +23,7 @@ function Modal({ showModal, setShowModal }) {
         <ModalCard variants={modalVariants}>
           <p>Click the buttons to light the corresponding candle.</p>
           <br />
-          <img src="https://via.placeholder.com/600x400.png"></img>
+          <img src={demoGIF}></img>
           <p>For best results, add the candles one at a time.</p>
           <br />
           <StyledButton
