@@ -1,7 +1,7 @@
 import React from "react";
 
 // import styled from "styled-components";
-import "./Menorah.css";
+// import "./Menorah.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 //Variants
@@ -22,7 +22,7 @@ const coronaVariants = {
     transition: { duration: 2 },
   },
   bobbing: {
-    scale: [1.1, 1],
+    scale: [1, 1.1],
     transition: { yoyo: Infinity, duration: 0.8 },
   },
 };
@@ -34,6 +34,11 @@ const flameVariants = {
     scale: [1.1, 1],
     transition: { yoyo: Infinity, duration: 0.8 },
   },
+};
+
+const candleWaxVariants = {
+  hidden: { y: -500, transition: { duration: 0.5 } },
+  visible: { y: 0, transition: { duration: 0.5 } },
 };
 
 // const shamashVariants = {
@@ -545,7 +550,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                   variants={flameVariants}
                   initial="hidden"
                   animate="visible"
-                  exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                  exit="hidden"
                   whileHover="whileHover"
                 >
                   <path
@@ -579,14 +584,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                   r="5"
                 /> */}
               {/* <!-- 8th candle wick and wax --> */}
-              <path
-                fill="#d5e3ec"
-                d="M468,342.3h-31c-5,0-9,4-9,9v131.8H477V351.3C477,346.3,473,342.3,468,342.3z"
-              />
-              <path
-                fill="#504B42"
-                d="M452.5,324.4L452.5,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C454.3,325.3,453.5,324.4,452.5,324.4z"
-              />
+              {candlesLit >= 8 && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M468,342.3h-31c-5,0-9,4-9,9v131.8H477V351.3C477,346.3,473,342.3,468,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M452.5,324.4L452.5,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C454.3,325.3,453.5,324.4,452.5,324.4z"
+                  />
+                </motion.g>
+              )}
             </g>
 
             {/* <!-- 8th candle corona --> */}
@@ -596,7 +609,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                 variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
-                exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                exit="hidden"
                 whileHover="bobbing"
               >
                 <circle
@@ -647,14 +660,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                 </motion.g>
               )}
               {/* <!-- 7th candle wick and wax --> */}
-              <path
-                fill="#d5e3ec"
-                d="M568.7,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C577.7,346.3,573.7,342.3,568.7,342.3z"
-              />
-              <path
-                fill="#504B42"
-                d="M553.2,324.4L553.2,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C555,325.3,554.2,324.4,553.2,324.4z"
-              />
+              {candlesLit >= 7 && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M568.7,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C577.7,346.3,573.7,342.3,568.7,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M553.2,324.4L553.2,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C555,325.3,554.2,324.4,553.2,324.4z"
+                  />
+                </motion.g>
+              )}
             </g>
             {/* <!-- 7th candle corona --> */}
             {candlesLit >= 7 && (
@@ -663,7 +684,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                whileHover="whileHover"
+                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -712,14 +733,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                 </motion.g>
               )}
               {/* <!-- 6th candle wick and wax --> */}
-              <path
-                fill="#d5e3ec"
-                d="M667.8,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C676.9,346.3,672.8,342.3,667.8,342.3z"
-              />
-              <path
-                fill="#504B42"
-                d="M652.3,324.4L652.3,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C654.2,325.3,653.3,324.4,652.3,324.4z"
-              />
+              {candlesLit >= 6 && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M667.8,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C676.9,346.3,672.8,342.3,667.8,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M652.3,324.4L652.3,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C654.2,325.3,653.3,324.4,652.3,324.4z"
+                  />
+                </motion.g>
+              )}
             </g>
             {/* <!-- 6th candle corona --> */}
             {candlesLit >= 6 && (
@@ -776,14 +805,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                 </motion.g>
               )}
               {/* <!-- 5th candle wick and wax --> */}
-              <path
-                fill="#d5e3ec"
-                d="M767,342.3h-31c-5,0-9,4-9,9v131.8H776V351.3C776,346.3,772,342.3,767,342.3z"
-              />
-              <path
-                fill="#504B42"
-                d="M751.5,324.4L751.5,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C753.3,325.3,752.5,324.4,751.5,324.4z"
-              />
+              {candlesLit >= 5 && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M767,342.3h-31c-5,0-9,4-9,9v131.8H776V351.3C776,346.3,772,342.3,767,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M751.5,324.4L751.5,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C753.3,325.3,752.5,324.4,751.5,324.4z"
+                  />
+                </motion.g>
+              )}
             </g>
             {/* <!-- 5th candle corona --> */}
             {candlesLit >= 5 && (
@@ -841,14 +878,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               )}
 
               {/* <!-- 1st candle wick and wax --> */}
-              <path
-                fill="#d5e3ec"
-                d="M1232,342.3h31c5,0,9,4,9,9v131.8H1223V351.3C1223,346.3,1227,342.3,1232,342.3z"
-              />
-              <path
-                fill="#504B42"
-                d="M1247.5,324.4L1247.5,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1245.7,325.3,1246.5,324.4,1247.5,324.4z"
-              />
+              {candlesLit >= 1 && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M1232,342.3h31c5,0,9,4,9,9v131.8H1223V351.3C1223,346.3,1227,342.3,1232,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M1247.5,324.4L1247.5,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1245.7,325.3,1246.5,324.4,1247.5,324.4z"
+                  />
+                </motion.g>
+              )}
             </g>
 
             {/* <!-- 1st candle corona --> */}
@@ -906,14 +951,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                 </motion.g>
               )}
               {/* <!-- 2nd candle wick and wax --> */}
-              <path
-                fill="#d5e3ec"
-                d="M1131.3,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1122.3,346.3,1126.3,342.3,1131.3,342.3z"
-              />
-              <path
-                fill="#504B42"
-                d="M1146.8,324.4L1146.8,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1145,325.3,1145.8,324.4,1146.8,324.4z"
-              />
+              {candlesLit >= 2 && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M1131.3,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1122.3,346.3,1126.3,342.3,1131.3,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M1146.8,324.4L1146.8,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1145,325.3,1145.8,324.4,1146.8,324.4z"
+                  />
+                </motion.g>
+              )}
             </g>
             {/* <!-- 2nd candle corona --> */}
             {candlesLit >= 2 && (
@@ -970,14 +1023,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                 </motion.g>
               )}
               {/* <!-- 3rd candle wick and wax --> */}
-              <path
-                fill="#d5e3ec"
-                d="M1032.2,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1023.1,346.3,1027.2,342.3,1032.2,342.3z"
-              />
-              <path
-                fill="#504B42"
-                d="M1047.7,324.4L1047.7,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1045.8,325.3,1046.7,324.4,1047.7,324.4z"
-              />
+              {candlesLit >= 3 && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M1032.2,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1023.1,346.3,1027.2,342.3,1032.2,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M1047.7,324.4L1047.7,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1045.8,325.3,1046.7,324.4,1047.7,324.4z"
+                  />
+                </motion.g>
+              )}
             </g>
             {/* <!-- 3rd candle corona --> */}
             {candlesLit >= 3 && (
@@ -1034,14 +1095,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                 </motion.g>
               )}
               {/* <!-- 4th candle wick and wax --> */}
-              <path
-                fill="#d5e3ec"
-                d="M933,342.3h31c5,0,9,4,9,9v131.8H924V351.3C924,346.3,928,342.3,933,342.3z"
-              />
-              <path
-                fill="#504B42"
-                d="M948.5,324.4L948.5,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C946.7,325.3,947.5,324.4,948.5,324.4z"
-              />
+              {candlesLit >= 4 && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M933,342.3h31c5,0,9,4,9,9v131.8H924V351.3C924,346.3,928,342.3,933,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M948.5,324.4L948.5,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C946.7,325.3,947.5,324.4,948.5,324.4z"
+                  />
+                </motion.g>
+              )}
             </g>
             {/* <!-- 4th candle corona --> */}
             {candlesLit >= 4 && (
@@ -1077,21 +1146,19 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
           </g>
           <motion.g
             id="shamash-group"
-            drag
-            onDragStart={(event, info) => {
-              setShamashActive(true);
-            }}
-            // onDrag={(event, info) => {
-            //   console.log(info.point.x, info.point.y);
+            // drag
+            // onDragStart={(event, info) => {
+            //   setShamashActive(true);
             // }}
-            onDragEnd={(event, info) => {
-              setShamashActive(false);
-            }}
-            dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-            dragElastic={2}
-            animate={{
-              rotate: shamashActive ? -60 : 0,
-            }}
+
+            // onDragEnd={(event, info) => {
+            //   setShamashActive(false);
+            // }}
+            // dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+            // dragElastic={2}
+            // animate={{
+            //   rotate: shamashActive ? -60 : 0,
+            // }}
           >
             <g>
               {/* <!-- shamash flame --> */}
@@ -1132,14 +1199,22 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
                   r="5"
                 /> */}
               {/* <!-- shamash wick and wax --> */}
-              <path
-                fill="#7daaca"
-                d="M865.6,244.8h-31c-5,0-9,4-9,9v131.8h49.1V253.8C874.6,248.8,870.6,244.8,865.6,244.8z"
-              />
-              <path
-                fill="#504B42"
-                d="M850.1,226.9L850.1,226.9c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C851.9,227.8,851.1,226.9,850.1,226.9z"
-              />
+              {shamashLit && (
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#7daaca"
+                    d="M865.6,244.8h-31c-5,0-9,4-9,9v131.8h49.1V253.8C874.6,248.8,870.6,244.8,865.6,244.8z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M850.1,226.9L850.1,226.9c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C851.9,227.8,851.1,226.9,850.1,226.9z"
+                  />
+                </motion.g>
+              )}
             </g>
             {/* <!-- shamash corona --> */}
             {shamashLit && (

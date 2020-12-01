@@ -6,23 +6,12 @@ import { fadeIn } from "./animations";
 //Components
 import styled from "styled-components";
 import Menorah from "./components/Menorah";
+import Canvas from "./components/Canvas";
 
 function App() {
   const [candlesLit, setCandlesLit] = useState(0);
   const [shamashLit, setShamashLit] = useState(false);
   const [shamashActive, setShamashActive] = useState(false);
-
-  // const backgroundColors = [
-  //   "#020305",
-  //   "#040609",
-  //   "#080C12",
-  //   "#101823",
-  //   "#182434",
-  //   "#1F3045",
-  //   "#26374B",
-  //   "#2D3D51",
-  //   "#374659",
-  // ];
 
   const backgroundColors = [
     "#010102",
@@ -33,6 +22,7 @@ function App() {
     "#131C28",
     "#16202E",
     "#182434",
+    "#2D3846",
   ];
 
   const buttonVariants = {
@@ -53,29 +43,47 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 2 } }}
       >
-        <Menorah
-          candlesLit={candlesLit}
-          shamashLit={shamashLit}
-          shamashActive={shamashActive}
-          setShamashActive={setShamashActive}
-        />
+        {/* <Canvas /> */}
+        <AnimatePresence>
+          <Menorah
+            candlesLit={candlesLit}
+            shamashLit={shamashLit}
+            shamashActive={shamashActive}
+            setShamashActive={setShamashActive}
+          />
+        </AnimatePresence>
         <ButtonDiv
           className="buttons"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
         >
           <StyledButton
-            className={
-              candlesLit === 0 && shamashLit === false ? "active-btn" : ""
-            }
+            className={candlesLit >= 2 ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(0);
-              setShamashLit(false);
+              setCandlesLit(2);
             }}
           >
-            לכבות
+            ב<br />
+            <span>2</span>
+          </StyledButton>
+          <StyledButton
+            className={candlesLit >= 1 ? "active-btn" : ""}
+            onClick={() => {
+              setCandlesLit(1);
+            }}
+          >
+            א<br />
+            <span>1</span>
+          </StyledButton>
+          <StyledButton
+            className={candlesLit === 0 ? "active-btn" : ""}
+            onClick={() => {
+              setCandlesLit(0);
+            }}
+          >
+            אפס
             <br />
-            <span>Extinguish</span>
+            <span>0</span>
           </StyledButton>
           <StyledButton
             // variants={buttonVariants}
@@ -145,24 +153,6 @@ function App() {
             ג<br />
             <span>3</span>
           </StyledButton>
-          <StyledButton
-            className={candlesLit >= 2 ? "active-btn" : ""}
-            onClick={() => {
-              setCandlesLit(2);
-            }}
-          >
-            ב<br />
-            <span>2</span>
-          </StyledButton>
-          <StyledButton
-            className={candlesLit >= 1 ? "active-btn" : ""}
-            onClick={() => {
-              setCandlesLit(1);
-            }}
-          >
-            א<br />
-            <span>1</span>
-          </StyledButton>
         </ButtonDiv>
       </BodyDiv>
     </AppDiv>
@@ -197,7 +187,7 @@ const ButtonDiv = styled(motion.div)`
 `;
 
 const StyledButton = styled(motion.button)`
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   padding: 0.4rem 0.7rem;
   background-color: transparent;
   color: #bc9357;
@@ -206,12 +196,12 @@ const StyledButton = styled(motion.button)`
   border-radius: 0.5rem;
 
   span {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   &.active-btn {
     border: 2px inset #bc9357;
-    background-color: rgba(150, 116, 68, 0.1);
+    background-color: rgba(150, 116, 68, 0.2);
     text-shadow: 0px 0px 5px rgba(254, 254, 222, 0.1),
       0px 0px 10px rgba(254, 254, 222, 0.1),
       0px 0px 15px rgba(254, 254, 222, 0.1);
@@ -229,6 +219,10 @@ const StyledButton = styled(motion.button)`
     box-shadow: 0px 0px 5px rgba(254, 254, 222, 0.1),
       0px 0px 10px rgba(254, 254, 222, 0.1),
       0px 0px 15px rgba(254, 254, 222, 0.1);
+  }
+
+  &:focus {
+    outline: 0;
   }
 `;
 
