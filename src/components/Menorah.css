@@ -2,6 +2,7 @@
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
+  z-index: -5;
 }
 
 #shamash-group:active {
