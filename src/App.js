@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import Menorah from "./components/Menorah";
 import Modal from "./components/Modal";
+import information from "./components/information.svg";
 
 function App() {
   const [candlesLit, setCandlesLit] = useState(0);
@@ -48,6 +49,14 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 2 } }}
       >
+        <img
+          id="info-icon"
+          onClick={() => {
+            setShowModal(true);
+          }}
+          src={information}
+          alt="click for info"
+        ></img>
         {showModal && (
           <Modal showModal={showModal} setShowModal={setShowModal} />
         )}
@@ -177,14 +186,7 @@ function App() {
           >
             <span id="clear-btn">Clear all candles</span>
           </StyledButton>
-          <StyledButton
-            // className={candlesLit === 0 ? "active-btn" : ""}
-            onClick={() => {
-              setShowModal(true);
-            }}
-          >
-            Modal
-          </StyledButton>
+
           {/* <p className="instructions">
             Click the buttons to light the corresponding candle.
             <br />
@@ -225,11 +227,19 @@ const BodyDiv = styled(motion.div)`
     text-shadow: 0px 0px 15px rgba(254, 254, 222, 0.15),
       0px 0px 20px rgba(254, 254, 222, 0.15),
       0px 0px 25px rgba(254, 254, 222, 0.15);
+
+    @media (max-width: 700px) {
+      margin-top: -1rem;
+      font-size: 3rem;
+    }
   }
 
-  img {
-    height: 100%;
-    object-fit: cover;
+  #info-icon {
+    position: fixed;
+    top: 3rem;
+    left: 3rem;
+    height: 30px;
+    cursor: pointer;
   }
 
   p {
@@ -264,8 +274,16 @@ const StyledButton = styled(motion.button)`
   border: 2px outset #bc9357;
   border-radius: 0.5rem;
 
+  @media (max-width: 700px) {
+    /* margin-top: -1rem; */
+    font-size: 1rem;
+  }
+
   span {
     font-size: 1.2rem;
+    @media (max-width: 700px) {
+      font-size: 0.8rem;
+    }
   }
 
   #clear-btn {

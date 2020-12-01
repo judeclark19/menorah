@@ -14,6 +14,9 @@ function Modal({ showModal, setShowModal }) {
         initial="hidden"
         animate="visible"
         exit="hidden"
+        onClick={() => {
+          setShowModal(false);
+        }}
       >
         <ModalCard variants={modalVariants}>
           <p>Click the buttons to light the corresponding candle.</p>
@@ -43,7 +46,7 @@ const ModalBG = styled(motion.div)`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 3;
+  z-index: 1;
   display: grid;
   place-items: center;
 `;
@@ -56,6 +59,7 @@ const ModalCard = styled(motion.div)`
   text-align: center;
   background: #0d131b;
   border-radius: 1rem;
+  z-index: 2;
 
   img {
     width: 100%;
