@@ -18,12 +18,14 @@ const coronaVariants = {
   },
   visible: {
     scale: 1,
+    // scale: [1, 1.1],
+    // transition: { yoyo: Infinity, duration: 0.8, delay: 1 },
     opacity: 1,
     transition: { duration: 2 },
   },
   bobbing: {
-    scale: [1, 1.1],
-    transition: { yoyo: Infinity, duration: 0.8 },
+    scale: [1, 1.05, 0.95, 0.9, 1, 1.1, 0.9],
+    transition: { yoyo: Infinity, duration: 2 },
   },
 };
 
@@ -46,7 +48,7 @@ const candleWaxVariants = {
 //   animate: { rotate: 90 },
 // };
 
-function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
+function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
   return (
     <svg
       version="1.1"
@@ -608,7 +610,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={candlesBobbing >= 8 ? "bobbing" : "visible"}
                 exit="hidden"
                 whileHover="bobbing"
               >
@@ -682,7 +684,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={candlesBobbing >= 7 ? "bobbing" : "visible"}
                 exit="hidden"
                 whileHover="bobbing"
               >
@@ -755,7 +757,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={candlesBobbing >= 6 ? "bobbing" : "visible"}
                 whileHover="bobbing"
               >
                 <circle
@@ -827,7 +829,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={candlesBobbing >= 5 ? "bobbing" : "visible"}
                 whileHover="bobbing"
               >
                 <circle
@@ -901,7 +903,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={candlesBobbing >= 1 ? "bobbing" : "visible"}
                 whileHover="bobbing"
               >
                 <circle
@@ -973,7 +975,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={candlesBobbing >= 2 ? "bobbing" : "visible"}
                 whileHover="bobbing"
               >
                 <circle
@@ -1045,7 +1047,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={candlesBobbing >= 3 ? "bobbing" : "visible"}
                 whileHover="bobbing"
               >
                 <circle
@@ -1117,7 +1119,7 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={candlesBobbing >= 4 ? "bobbing" : "visible"}
                 whileHover="bobbing"
               >
                 <circle
@@ -1221,7 +1223,8 @@ function Menorah({ candlesLit, shamashLit, shamashActive, setShamashActive }) {
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate="visible"
+                animate={shamashBobbing ? "bobbing" : "visible"}
+                // animate="visible"
                 whileHover="bobbing"
               >
                 <circle

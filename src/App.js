@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeIn } from "./animations";
 
 //Components
 import styled from "styled-components";
 import Menorah from "./components/Menorah";
-import Canvas from "./components/Canvas";
 
 function App() {
   const [candlesLit, setCandlesLit] = useState(0);
+  const [candlesBobbing, setCandlesBobbing] = useState(0);
   const [shamashLit, setShamashLit] = useState(false);
-  const [shamashActive, setShamashActive] = useState(false);
+  const [shamashBobbing, setShamashBobbing] = useState(false);
+
+  setTimeout(() => {
+    setCandlesBobbing(candlesLit);
+  }, 2000);
+
+  const startShamashBobbing = () => {
+    setTimeout(() => {
+      setShamashBobbing(true);
+    }, 2000);
+  };
 
   const backgroundColors = [
     "#010102",
@@ -25,13 +34,6 @@ function App() {
     "#2D3846",
   ];
 
-  const buttonVariants = {
-    bobbing: {
-      scale: [1.2, 1],
-      transition: { yoyo: Infinity, duration: 0.2 },
-    },
-  };
-
   return (
     <AppDiv
       style={{
@@ -43,13 +45,14 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 2 } }}
       >
-        {/* <Canvas /> */}
         <AnimatePresence>
           <Menorah
             candlesLit={candlesLit}
             shamashLit={shamashLit}
-            shamashActive={shamashActive}
-            setShamashActive={setShamashActive}
+            // shamashActive={shamashActive}
+            // setShamashActive={setShamashActive}
+            candlesBobbing={candlesBobbing}
+            shamashBobbing={shamashBobbing}
           />
         </AnimatePresence>
         <ButtonDiv
@@ -91,6 +94,7 @@ function App() {
             className={shamashLit ? "active-btn" : ""}
             onClick={() => {
               setShamashLit(!shamashLit);
+              startShamashBobbing();
             }}
           >
             שמש <br />
@@ -154,6 +158,12 @@ function App() {
             <span>3</span>
           </StyledButton>
         </ButtonDiv>
+        <p className="instructions">
+          For best results, light the candles, one at a time.
+        </p>
+        <p>
+          Created by <a href="https://github.com/judeclark19">Jude Clark</a>
+        </p>
       </BodyDiv>
     </AppDiv>
   );
@@ -180,6 +190,16 @@ const BodyDiv = styled(motion.div)`
     height: 100%;
     object-fit: cover;
   }
+
+  p {
+    margin-top: 1rem;
+    color: #bc9357;
+
+    &.instructions {
+      font-size: 15pt;
+      font-weight: bold;
+    }
+  }
 `;
 
 const ButtonDiv = styled(motion.div)`
@@ -187,7 +207,7 @@ const ButtonDiv = styled(motion.div)`
 `;
 
 const StyledButton = styled(motion.button)`
-  font-size: 2.2rem;
+  font-size: 2rem;
   padding: 0.4rem 0.7rem;
   background-color: transparent;
   color: #bc9357;
