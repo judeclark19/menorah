@@ -56,6 +56,7 @@ function App() {
             shamashBobbing={shamashBobbing}
           />
         </AnimatePresence>
+        <h1>חַג חֲנוּכָּה שַׂמֵחַ</h1>
         <ButtonDiv
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
@@ -157,7 +158,10 @@ function App() {
             <span>Shamash</span>
           </StyledButton>
           <p className="instructions">
-            For best results, light the candles one at a time.
+            Click the buttons to light the corresponding candle.
+            <br />
+            <br />
+            For best results, add the candles one at a time.
           </p>
           <p>
             Created by <a href="https://github.com/judeclark19">Jude Clark</a>
@@ -184,6 +188,16 @@ const BodyDiv = styled(motion.div)`
   @media (max-width: 600px) {
     padding: 5rem 0rem;
   }
+  h1 {
+    color: #7daaca;
+    margin-top: -2rem;
+    /*margin-bottom: -1rem; */
+    font-weight: lighter;
+    font-size: 4.5rem;
+    text-shadow: 0px 0px 15px rgba(254, 254, 222, 0.15),
+      0px 0px 20px rgba(254, 254, 222, 0.15),
+      0px 0px 25px rgba(254, 254, 222, 0.15);
+  }
 
   img {
     height: 100%;
@@ -206,8 +220,8 @@ const ButtonDiv = styled(motion.div)`
   text-align: center;
   padding: 1rem;
   max-height: 20vh;
-  margin-top: -30px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   /* overflow: hidden; */
 `;
 
