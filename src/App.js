@@ -15,12 +15,12 @@ function App() {
 
   setTimeout(() => {
     setCandlesBobbing(candlesLit);
-  }, 2000);
+  }, 2500);
 
   const startShamashBobbing = () => {
     setTimeout(() => {
       setShamashBobbing(true);
-    }, 2000);
+    }, 2500);
   };
 
   const backgroundColors = [

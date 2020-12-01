@@ -21,7 +21,7 @@ const coronaVariants = {
     // scale: [1, 1.1],
     // transition: { yoyo: Infinity, duration: 0.8, delay: 1 },
     opacity: 1,
-    transition: { duration: 2 },
+    transition: { delay: 0.5, duration: 2 },
   },
   bobbing: {
     scale: [1, 1.05, 0.95, 0.9, 1, 1.1, 0.9],
@@ -30,8 +30,8 @@ const coronaVariants = {
 };
 
 const flameVariants = {
-  hidden: { scale: 0, transition: { duration: 2 } },
-  visible: { scale: 1, transition: { duration: 2 } },
+  hidden: { scale: 0, opacity: 0, transition: { duration: 2 } },
+  visible: { scale: 1, opacity: 1, transition: { delay: 0.5, duration: 2 } },
   bobbing: {
     scale: [1.1, 1],
     transition: { yoyo: Infinity, duration: 0.8 },
