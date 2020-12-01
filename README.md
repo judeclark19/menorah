@@ -1,8 +1,8 @@
 # Virtual Menorah
 
-A menorah to share on your screen while celebrating Zoom Hanukkah.
+A menorah to share on your screen while celebrating Zoom Hanukkah. Click the buttons to 'light' the corresponding candles.
 
-![Image of Yaktocat](./components/demo_gif.gif)
+![Image of Yaktocat](./README_images/readme_ss.png)
 
 ### Credits
 
