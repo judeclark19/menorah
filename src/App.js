@@ -135,7 +135,7 @@ function App() {
             א<br />
             <span>1</span>
           </StyledButton>
-          <StyledButton
+          {/* <StyledButton
             // className={candlesLit === 0 ? "active-btn" : ""}
             onClick={() => {
               setCandlesLit(0);
@@ -144,7 +144,7 @@ function App() {
             אפס
             <br />
             <span>0</span>
-          </StyledButton>
+          </StyledButton> */}
           <StyledButton
             // variants={buttonVariants}
             // animate="bobbing"
@@ -159,6 +159,18 @@ function App() {
           >
             שמש <br />
             <span>Shamash</span>
+          </StyledButton>
+          <br />
+          <br />
+          <StyledButton
+            // className={candlesLit === 0 ? "active-btn" : ""}
+            onClick={() => {
+              setCandlesLit(0);
+              setShamashLit(false);
+              setShamashBobbing(false);
+            }}
+          >
+            <span id="clear-btn">Clear all candles</span>
           </StyledButton>
           <p className="instructions">
             Click the buttons to light the corresponding candle.
@@ -241,6 +253,10 @@ const StyledButton = styled(motion.button)`
 
   span {
     font-size: 1.2rem;
+  }
+
+  #clear-btn {
+    font-size: 1rem;
   }
 
   &.active-btn {
