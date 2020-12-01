@@ -1,7 +1,7 @@
 import React from "react";
 
 // import styled from "styled-components";
-// import "./Menorah.css";
+import "./Menorah.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 //Variants
@@ -43,12 +43,24 @@ const candleWaxVariants = {
   visible: { y: 0, transition: { duration: 0.5 } },
 };
 
+const rotateVariants = {
+  initial: { rotate: 0 },
+  animate: { rotate: -60 },
+};
+
 // const shamashVariants = {
 //   initial: { rotate: 0 },
 //   animate: { rotate: 90 },
 // };
 
-function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
+function Menorah({
+  candlesLit,
+  shamashLit,
+  candlesBobbing,
+  shamashBobbing,
+  shamashActive,
+  setShamashActive,
+}) {
   return (
     <svg
       version="1.1"
@@ -553,7 +565,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  whileHover="whileHover"
                 >
                   <path
                     fill="#FEFEDE"
@@ -612,7 +623,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                 initial="hidden"
                 animate={candlesBobbing >= 8 ? "bobbing" : "visible"}
                 exit="hidden"
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -647,7 +657,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  whileHover="whileHover"
                 >
                   <path
                     fill="#FEFEDE"
@@ -686,7 +695,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                 initial="hidden"
                 animate={candlesBobbing >= 7 ? "bobbing" : "visible"}
                 exit="hidden"
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -720,7 +728,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   variants={flameVariants}
                   initial="hidden"
                   animate="visible"
-                  whileHover="whileHover"
                 >
                   <path
                     fill="#FEFEDE"
@@ -758,7 +765,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                 variants={coronaVariants}
                 initial="hidden"
                 animate={candlesBobbing >= 6 ? "bobbing" : "visible"}
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -792,7 +798,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   variants={flameVariants}
                   initial="hidden"
                   animate="visible"
-                  whileHover="bobbing"
                 >
                   <path
                     fill="#FEFEDE"
@@ -830,7 +835,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                 variants={coronaVariants}
                 initial="hidden"
                 animate={candlesBobbing >= 5 ? "bobbing" : "visible"}
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -857,14 +861,17 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
             )}
           </g>
           <g>
-            <g>
+            <motion.g
+              onMouseEnter={() => {
+                console.log("hover 1");
+              }}
+            >
               {/* <!-- 1st candle flame --> */}
               {candlesLit >= 1 && (
                 <motion.g
                   variants={flameVariants}
                   initial="hidden"
                   animate="visible"
-                  whileHover="whileHover"
                 >
                   <path
                     fill="#FEFEDE"
@@ -896,7 +903,7 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   />
                 </motion.g>
               )}
-            </g>
+            </motion.g>
 
             {/* <!-- 1st candle corona --> */}
             {candlesLit >= 1 && (
@@ -904,7 +911,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                 variants={coronaVariants}
                 initial="hidden"
                 animate={candlesBobbing >= 1 ? "bobbing" : "visible"}
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -931,14 +937,17 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
             )}
           </g>
           <g>
-            <g>
+            <motion.g
+              onHoverStart={() => {
+                console.log("hover 2");
+              }}
+            >
               {/* <!-- 2nd candle flame --> */}
               {candlesLit >= 2 && (
                 <motion.g
                   variants={flameVariants}
                   initial="hidden"
                   animate="visible"
-                  whileHover="whileHover"
                 >
                   <path
                     fill="#FEFEDE"
@@ -969,14 +978,13 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   />
                 </motion.g>
               )}
-            </g>
+            </motion.g>
             {/* <!-- 2nd candle corona --> */}
             {candlesLit >= 2 && (
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
                 animate={candlesBobbing >= 2 ? "bobbing" : "visible"}
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -1003,14 +1011,17 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
             )}
           </g>
           <g>
-            <g>
+            <motion.g
+              onHoverStart={() => {
+                console.log("hover 3");
+              }}
+            >
               {/* <!-- 3rd candle flame --> */}
               {candlesLit >= 3 && (
                 <motion.g
                   variants={flameVariants}
                   initial="hidden"
                   animate="visible"
-                  whileHover="whileHover"
                 >
                   <path
                     fill="#FEFEDE"
@@ -1041,14 +1052,13 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   />
                 </motion.g>
               )}
-            </g>
+            </motion.g>
             {/* <!-- 3rd candle corona --> */}
             {candlesLit >= 3 && (
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
                 animate={candlesBobbing >= 3 ? "bobbing" : "visible"}
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -1082,7 +1092,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   variants={flameVariants}
                   initial="hidden"
                   animate="visible"
-                  whileHover="whileHover"
                 >
                   <path
                     fill="#FEFEDE"
@@ -1120,7 +1129,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                 variants={coronaVariants}
                 initial="hidden"
                 animate={candlesBobbing >= 4 ? "bobbing" : "visible"}
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"
@@ -1148,18 +1156,17 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
           </g>
           <motion.g
             id="shamash-group"
-            // drag
-            // onDragStart={(event, info) => {
-            //   setShamashActive(true);
-            // }}
-
-            // onDragEnd={(event, info) => {
-            //   setShamashActive(false);
-            // }}
-            // dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-            // dragElastic={2}
+            drag
+            onDragStart={(event, info) => {
+              setShamashActive(true);
+            }}
+            onDragEnd={(event, info) => {
+              setShamashActive(false);
+            }}
+            dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+            dragElastic={2}
             // animate={{
-            //   rotate: shamashActive ? -60 : 0,
+            //   rotate: shamashActive ? -70 : 0,
             // }}
           >
             <g>
@@ -1169,7 +1176,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                   variants={flameVariants}
                   initial="hidden"
                   animate="visible"
-                  whileHover="whileHover"
                 >
                   <path
                     id="shamash__outer-flame"
@@ -1225,7 +1231,6 @@ function Menorah({ candlesLit, shamashLit, candlesBobbing, shamashBobbing }) {
                 initial="hidden"
                 animate={shamashBobbing ? "bobbing" : "visible"}
                 // animate="visible"
-                whileHover="bobbing"
               >
                 <circle
                   opacity="0.1"

@@ -11,6 +11,7 @@ function App() {
   const [candlesBobbing, setCandlesBobbing] = useState(0);
   const [shamashLit, setShamashLit] = useState(false);
   const [shamashBobbing, setShamashBobbing] = useState(false);
+  const [shamashActive, setShamashActive] = useState(false);
 
   setTimeout(() => {
     setCandlesBobbing(candlesLit);
@@ -49,59 +50,18 @@ function App() {
           <Menorah
             candlesLit={candlesLit}
             shamashLit={shamashLit}
-            // shamashActive={shamashActive}
-            // setShamashActive={setShamashActive}
+            shamashActive={shamashActive}
+            setShamashActive={setShamashActive}
             candlesBobbing={candlesBobbing}
             shamashBobbing={shamashBobbing}
           />
         </AnimatePresence>
         <ButtonDiv
-          className="buttons"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
         >
-          <StyledButton
-            className={candlesLit >= 2 ? "active-btn" : ""}
-            onClick={() => {
-              setCandlesLit(2);
-            }}
-          >
-            ב<br />
-            <span>2</span>
-          </StyledButton>
-          <StyledButton
-            className={candlesLit >= 1 ? "active-btn" : ""}
-            onClick={() => {
-              setCandlesLit(1);
-            }}
-          >
-            א<br />
-            <span>1</span>
-          </StyledButton>
-          <StyledButton
-            className={candlesLit === 0 ? "active-btn" : ""}
-            onClick={() => {
-              setCandlesLit(0);
-            }}
-          >
-            אפס
-            <br />
-            <span>0</span>
-          </StyledButton>
-          <StyledButton
-            // variants={buttonVariants}
-            // animate="bobbing"
-            className={shamashLit ? "active-btn" : ""}
-            onClick={() => {
-              setShamashLit(!shamashLit);
-              startShamashBobbing();
-            }}
-          >
-            שמש <br />
-            <span>Shamash</span>
-          </StyledButton>
-          <br />
-          <br />
+          {/* <br />
+          <br /> */}
           <StyledButton
             className={candlesLit >= 8 ? "active-btn" : ""}
             onClick={() => {
@@ -147,7 +107,6 @@ function App() {
             ד<br />
             <span>4</span>
           </StyledButton>
-
           <StyledButton
             className={candlesLit >= 3 ? "active-btn" : ""}
             onClick={() => {
@@ -157,13 +116,53 @@ function App() {
             ג<br />
             <span>3</span>
           </StyledButton>
+          <StyledButton
+            className={candlesLit >= 2 ? "active-btn" : ""}
+            onClick={() => {
+              setCandlesLit(2);
+            }}
+          >
+            ב<br />
+            <span>2</span>
+          </StyledButton>
+          <StyledButton
+            className={candlesLit >= 1 ? "active-btn" : ""}
+            onClick={() => {
+              setCandlesLit(1);
+            }}
+          >
+            א<br />
+            <span>1</span>
+          </StyledButton>
+          <StyledButton
+            className={candlesLit === 0 ? "active-btn" : ""}
+            onClick={() => {
+              setCandlesLit(0);
+            }}
+          >
+            אפס
+            <br />
+            <span>0</span>
+          </StyledButton>
+          <StyledButton
+            // variants={buttonVariants}
+            // animate="bobbing"
+            className={shamashLit ? "active-btn" : ""}
+            onClick={() => {
+              setShamashLit(!shamashLit);
+              startShamashBobbing();
+            }}
+          >
+            שמש <br />
+            <span>Shamash</span>
+          </StyledButton>
+          <p className="instructions">
+            For best results, light the candles one at a time.
+          </p>
+          <p>
+            Created by <a href="https://github.com/judeclark19">Jude Clark</a>
+          </p>
         </ButtonDiv>
-        <p className="instructions">
-          For best results, light the candles, one at a time.
-        </p>
-        <p>
-          Created by <a href="https://github.com/judeclark19">Jude Clark</a>
-        </p>
       </BodyDiv>
     </AppDiv>
   );
@@ -178,7 +177,7 @@ const BodyDiv = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem;
+  /* padding: 3rem; */
   height: 100%;
   width: 100%;
 
@@ -203,11 +202,17 @@ const BodyDiv = styled(motion.div)`
 `;
 
 const ButtonDiv = styled(motion.div)`
+  /* border: 1px dashed red; */
   text-align: center;
+  padding: 1rem;
+  max-height: 20vh;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  /* overflow: hidden; */
 `;
 
 const StyledButton = styled(motion.button)`
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 0.4rem 0.7rem;
   background-color: transparent;
   color: #bc9357;
@@ -216,7 +221,7 @@ const StyledButton = styled(motion.button)`
   border-radius: 0.5rem;
 
   span {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   &.active-btn {
