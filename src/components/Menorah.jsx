@@ -1,7 +1,7 @@
 import React from "react";
 
 // import styled from "styled-components";
-import "./Menorah.css";
+// import "./Menorah.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 //Variants
@@ -1156,15 +1156,15 @@ function Menorah({
           </g>
           <motion.g
             id="shamash-group"
-            drag
-            onDragStart={(event, info) => {
-              setShamashActive(true);
-            }}
-            onDragEnd={(event, info) => {
-              setShamashActive(false);
-            }}
-            dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-            dragElastic={2}
+            // drag
+            // onDragStart={(event, info) => {
+            //   setShamashActive(true);
+            // }}
+            // onDragEnd={(event, info) => {
+            //   setShamashActive(false);
+            // }}
+            // dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+            // dragElastic={2}
             // animate={{
             //   rotate: shamashActive ? -70 : 0,
             // }}
@@ -1229,7 +1229,7 @@ function Menorah({
               <motion.g
                 variants={coronaVariants}
                 initial="hidden"
-                animate={shamashBobbing ? "bobbing" : "visible"}
+                animate={`${shamashBobbing ? "bobbing" : "visible"}`}
                 // animate="visible"
               >
                 <circle

@@ -135,7 +135,7 @@ function App() {
             <span>1</span>
           </StyledButton>
           <StyledButton
-            className={candlesLit === 0 ? "active-btn" : ""}
+            // className={candlesLit === 0 ? "active-btn" : ""}
             onClick={() => {
               setCandlesLit(0);
             }}
