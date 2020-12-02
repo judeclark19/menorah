@@ -39,15 +39,15 @@ function App() {
     "#16202E",
     "#182434",
     "#2D3846",
+    "#354654",
   ];
 
   return (
     <AppDiv
-      // style={{
-      //   transition: "background-color 2s ease",
-      //   backgroundColor: backgroundColors[candlesLit],
-      // }}
-      style={{ backgroundColor: "black" }}
+      style={{
+        transition: "background-color 2s ease",
+        backgroundColor: backgroundColors[numberLit],
+      }}
     >
       <BodyDiv
         initial={{ opacity: 0 }}
