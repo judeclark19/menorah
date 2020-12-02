@@ -1,4 +1,4 @@
-#shamash-group {
+/* #shamash-group {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
@@ -8,4 +8,8 @@
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
+} */
+
+.pointer {
+  cursor: pointer;
 }
