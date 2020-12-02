@@ -9,22 +9,25 @@ import Modal from "./components/Modal";
 import information from "./components/information.svg";
 
 function App() {
-  const [candlesLit, setCandlesLit] = useState(0);
-  const [candlesBobbing, setCandlesBobbing] = useState(0);
+  const [numberLit, setNumberLit] = useState(0);
+  const [shamashPresence, setShamashPresence] = useState(false);
+  const [candle1Presence, setCandle1Presence] = useState(false);
+  const [candle2Presence, setCandle2Presence] = useState(false);
+  const [candle3Presence, setCandle3Presence] = useState(false);
+  const [candle4Presence, setCandle4Presence] = useState(false);
+  const [candle5Presence, setCandle5Presence] = useState(false);
+  const [candle6Presence, setCandle6Presence] = useState(false);
+  const [candle7Presence, setCandle7Presence] = useState(false);
+  const [candle8Presence, setCandle8Presence] = useState(false);
   const [shamashLit, setShamashLit] = useState(false);
-  const [shamashBobbing, setShamashBobbing] = useState(false);
-  const [shamashActive, setShamashActive] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-
-  setTimeout(() => {
-    setCandlesBobbing(candlesLit);
-  }, 2500);
-
-  const startShamashBobbing = () => {
-    setTimeout(() => {
-      setShamashBobbing(true);
-    }, 2500);
-  };
+  const [candle1Lit, setCandle1Lit] = useState(false);
+  const [candle2Lit, setCandle2Lit] = useState(false);
+  const [candle3Lit, setCandle3Lit] = useState(false);
+  const [candle4Lit, setCandle4Lit] = useState(false);
+  const [candle5Lit, setCandle5Lit] = useState(false);
+  const [candle6Lit, setCandle6Lit] = useState(false);
+  const [candle7Lit, setCandle7Lit] = useState(false);
+  const [candle8Lit, setCandle8Lit] = useState(false);
 
   const backgroundColors = [
     "#010102",
@@ -40,16 +43,17 @@ function App() {
 
   return (
     <AppDiv
-      style={{
-        transition: "background-color 2s ease",
-        backgroundColor: backgroundColors[candlesLit],
-      }}
+      // style={{
+      //   transition: "background-color 2s ease",
+      //   backgroundColor: backgroundColors[candlesLit],
+      // }}
+      style={{ backgroundColor: "black" }}
     >
       <BodyDiv
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 2 } }}
       >
-        <img
+        {/* <img
           id="info-icon"
           onClick={() => {
             setShowModal(true);
@@ -59,17 +63,49 @@ function App() {
         ></img>
         {showModal && (
           <Modal showModal={showModal} setShowModal={setShowModal} />
-        )}
-        <AnimatePresence>
-          <Menorah
-            candlesLit={candlesLit}
-            shamashLit={shamashLit}
-            shamashActive={shamashActive}
-            setShamashActive={setShamashActive}
-            candlesBobbing={candlesBobbing}
-            shamashBobbing={shamashBobbing}
-          />
-        </AnimatePresence>
+        )} */}
+
+        <Menorah
+          numberLit={numberLit}
+          setNumberLit={setNumberLit}
+          shamashPresence={shamashPresence}
+          setShamashPresence={setShamashPresence}
+          shamashLit={shamashLit}
+          setShamashLit={setShamashLit}
+          candle1Presence={candle1Presence}
+          setCandle1Presence={setCandle1Presence}
+          candle1Lit={candle1Lit}
+          setCandle1Lit={setCandle1Lit}
+          candle2Presence={candle2Presence}
+          setCandle2Presence={setCandle2Presence}
+          candle2Lit={candle2Lit}
+          setCandle2Lit={setCandle2Lit}
+          candle3Presence={candle3Presence}
+          setCandle3Presence={setCandle3Presence}
+          candle3Lit={candle3Lit}
+          setCandle3Lit={setCandle3Lit}
+          candle4Presence={candle4Presence}
+          setCandle4Presence={setCandle4Presence}
+          candle4Lit={candle4Lit}
+          setCandle4Lit={setCandle4Lit}
+          candle5Presence={candle5Presence}
+          setCandle5Presence={setCandle5Presence}
+          candle5Lit={candle5Lit}
+          setCandle5Lit={setCandle5Lit}
+          candle6Presence={candle6Presence}
+          setCandle6Presence={setCandle6Presence}
+          candle6Lit={candle6Lit}
+          setCandle6Lit={setCandle6Lit}
+          candle7Presence={candle7Presence}
+          setCandle7Presence={setCandle7Presence}
+          candle7Lit={candle7Lit}
+          setCandle7Lit={setCandle7Lit}
+          candle8Presence={candle8Presence}
+          setCandle8Presence={setCandle8Presence}
+          candle8Lit={candle8Lit}
+          setCandle8Lit={setCandle8Lit}
+        />
+
         <h1>חַג חֲנוּכָּה שַׂמֵחַ</h1>
         <ButtonDiv
           initial={{ opacity: 0 }}
@@ -78,72 +114,104 @@ function App() {
           {/* <br />
           <br /> */}
           <StyledButton
-            className={candlesLit >= 8 ? "active-btn" : ""}
+            className={candle8Presence ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(8);
+              setCandle8Presence(!candle8Presence);
+              if (candle8Lit) {
+                setCandle8Lit(false);
+                setNumberLit(numberLit - 1);
+              }
             }}
           >
             ח<br />
             <span>8</span>
           </StyledButton>
           <StyledButton
-            className={candlesLit >= 7 ? "active-btn" : ""}
+            className={candle7Presence ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(7);
+              setCandle7Presence(!candle7Presence);
+              if (candle7Lit) {
+                setCandle7Lit(false);
+                setNumberLit(numberLit - 1);
+              }
             }}
           >
             ז<br />
             <span>7</span>
           </StyledButton>
           <StyledButton
-            className={candlesLit >= 6 ? "active-btn" : ""}
+            className={candle6Presence ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(6);
+              setCandle6Presence(!candle6Presence);
+              if (candle6Lit) {
+                setCandle6Lit(false);
+                setNumberLit(numberLit - 1);
+              }
             }}
           >
             ו<br />
             <span>6</span>
           </StyledButton>
           <StyledButton
-            className={candlesLit >= 5 ? "active-btn" : ""}
+            className={candle5Presence ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(5);
+              setCandle5Presence(!candle5Presence);
+              if (candle5Lit) {
+                setCandle5Lit(false);
+                setNumberLit(numberLit - 1);
+              }
             }}
           >
             ה<br />
             <span>5</span>
           </StyledButton>
           <StyledButton
-            className={candlesLit >= 4 ? "active-btn" : ""}
+            className={candle4Presence ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(4);
+              setCandle4Presence(!candle4Presence);
+              if (candle4Lit) {
+                setCandle4Lit(false);
+                setNumberLit(numberLit - 1);
+              }
             }}
           >
             ד<br />
             <span>4</span>
           </StyledButton>
           <StyledButton
-            className={candlesLit >= 3 ? "active-btn" : ""}
+            className={candle3Presence ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(3);
+              setCandle3Presence(!candle3Presence);
+              if (candle3Lit) {
+                setCandle3Lit(false);
+                setNumberLit(numberLit - 1);
+              }
             }}
           >
             ג<br />
             <span>3</span>
           </StyledButton>
           <StyledButton
-            className={candlesLit >= 2 ? "active-btn" : ""}
+            className={candle2Presence ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(2);
+              setCandle2Presence(!candle2Presence);
+              if (candle2Lit) {
+                setCandle2Lit(false);
+                setNumberLit(numberLit - 1);
+              }
             }}
           >
             ב<br />
             <span>2</span>
           </StyledButton>
           <StyledButton
-            className={candlesLit >= 1 ? "active-btn" : ""}
+            className={candle1Presence ? "active-btn" : ""}
             onClick={() => {
-              setCandlesLit(1);
+              setCandle1Presence(!candle1Presence);
+              if (candle1Lit) {
+                setCandle1Lit(false);
+                setNumberLit(numberLit - 1);
+              }
             }}
           >
             א<br />
@@ -160,21 +228,19 @@ function App() {
             <span>0</span>
           </StyledButton> */}
           <StyledButton
-            // variants={buttonVariants}
-            // animate="bobbing"
-            className={shamashLit ? "active-btn" : ""}
+            className={shamashPresence ? "active-btn" : ""}
             onClick={() => {
-              setShamashLit(!shamashLit);
-              if (shamashBobbing) {
-                setShamashBobbing(false);
+              setShamashPresence(!shamashPresence);
+              if (shamashLit) {
+                setShamashLit(false);
+                setNumberLit(numberLit - 1);
               }
-              startShamashBobbing();
             }}
           >
             שמש <br />
             <span>Shamash</span>
           </StyledButton>
-          <br />
+          {/* <br />
           <br />
           <StyledButton
             // className={candlesLit === 0 ? "active-btn" : ""}
@@ -185,7 +251,7 @@ function App() {
             }}
           >
             <span id="clear-btn">Clear all candles</span>
-          </StyledButton>
+          </StyledButton> */}
 
           {/* <p className="instructions">
             Click the buttons to light the corresponding candle.
