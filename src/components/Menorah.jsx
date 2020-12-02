@@ -1,7 +1,6 @@
 import React from "react";
 
-// import styled from "styled-components";
-// import "./Menorah.css";
+import "./Menorah.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 //Variants
@@ -18,14 +17,12 @@ const coronaVariants = {
   },
   visible: {
     scale: 1,
-    // scale: [1, 1.1],
-    // transition: { yoyo: Infinity, duration: 0.8, delay: 1 },
     opacity: 1,
-    transition: { delay: 0.5, duration: 2 },
+    transition: { delay: 0.3, duration: 2 },
   },
   flickering: {
     scale: [1, 1.05, 0.95, 0.9, 1, 1.1, 0.9],
-    transition: { yoyo: Infinity, duration: 2 },
+    transition: { yoyo: Infinity, duration: 0.8 },
   },
 };
 
@@ -33,25 +30,10 @@ const flameVariants = {
   hidden: { scale: 0, opacity: 0, transition: { duration: 2 } },
   visible: { scale: 1, opacity: 1, transition: { duration: 2 } },
   flickering: {
-    scale: [1.1, 1],
+    scale: [1, 1.05, 0.95, 0.9, 1, 1.1, 0.9],
     transition: { yoyo: Infinity, duration: 0.8 },
   },
 };
-
-// const candleWaxVariants = {
-//   hidden: { y: -500, transition: { duration: 0.5 } },
-//   visible: { y: 0, transition: { duration: 0.5 } },
-// };
-
-const rotateVariants = {
-  initial: { rotate: 0 },
-  animate: { rotate: -60 },
-};
-
-// const shamashVariants = {
-//   initial: { rotate: 0 },
-//   animate: { rotate: 90 },
-// };
 
 function Menorah({
   numberLit,
@@ -60,38 +42,56 @@ function Menorah({
   setShamashPresence,
   shamashLit,
   setShamashLit,
+  shamashFlicker,
+  setShamashFlicker,
   candle1Presence,
   setCandle1Presence,
   candle1Lit,
   setCandle1Lit,
+  candle1Flicker,
+  setCandle1Flicker,
   candle2Presence,
   setCandle2Presence,
   candle2Lit,
   setCandle2Lit,
+  candle2Flicker,
+  setCandle2Flicker,
   candle3Presence,
   setCandle3Presence,
   candle3Lit,
   setCandle3Lit,
+  candle3Flicker,
+  setCandle3Flicker,
   candle4Presence,
   setCandle4Presence,
   candle4Lit,
   setCandle4Lit,
+  candle4Flicker,
+  setCandle4Flicker,
   candle5Presence,
   setCandle5Presence,
   candle5Lit,
   setCandle5Lit,
+  candle5Flicker,
+  setCandle5Flicker,
   candle6Presence,
   setCandle6Presence,
   candle6Lit,
   setCandle6Lit,
+  candle6Flicker,
+  setCandle6Flicker,
   candle7Presence,
   setCandle7Presence,
   candle7Lit,
   setCandle7Lit,
+  candle7Flicker,
+  setCandle7Flicker,
   candle8Presence,
   setCandle8Presence,
   candle8Lit,
   setCandle8Lit,
+  candle8Flicker,
+  setCandle8Flicker,
 }) {
   return (
     <svg
@@ -140,189 +140,280 @@ function Menorah({
           />
           {/* 
 <!-- 8th candle base --> */}
-          <polygon
-            fill="#967444"
-            points="435,578 470,578 477,538.7 428,538.7 		"
-          />
-          <polygon
-            fill="#967444"
-            points="429.5,498.7 475.5,498.7 484.7,483.1 420.3,483.1 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M477.4,518.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V534c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
+          <g
+            className="pointer"
+            onClick={() => {
+              setCandle8Presence(!candle8Presence);
+              if (candle8Lit) {
+                setCandle8Lit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="435,578 470,578 477,538.7 428,538.7 		"
+            />
+            <polygon
+              fill="#967444"
+              points="429.5,498.7 475.5,498.7 484.7,483.1 420.3,483.1 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M477.4,518.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V534c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
 			C482.1,520.9,480,518.7,477.4,518.7z"
-          />
-          <path
-            fill="#BC9357"
-            d="M477.4,498.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V514c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
+            />
+            <path
+              fill="#BC9357"
+              d="M477.4,498.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V514c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
 			C482.1,500.9,480,498.7,477.4,498.7z"
-          />
-
+            />
+          </g>
           {/* <!-- 7th candle base --> */}
-          <polygon
-            fill="#967444"
-            points="535.7,578 570.7,578 577.7,538.7 528.6,538.7 		"
-          />
-          <polygon
-            fill="#967444"
-            points="530.2,498.7 576.1,498.7 585.4,483.1 521,483.1 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M578,518.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V534c0,2.6,2.1,4.8,4.8,4.8H578c2.6,0,4.8-2.1,4.8-4.8v-10.4
+          <g
+            className="pointer"
+            onClick={() => {
+              setCandle7Presence(!candle7Presence);
+              if (candle7Lit) {
+                setCandle7Lit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="535.7,578 570.7,578 577.7,538.7 528.6,538.7 		"
+            />
+            <polygon
+              fill="#967444"
+              points="530.2,498.7 576.1,498.7 585.4,483.1 521,483.1 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M578,518.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V534c0,2.6,2.1,4.8,4.8,4.8H578c2.6,0,4.8-2.1,4.8-4.8v-10.4
 			C582.8,520.9,580.7,518.7,578,518.7z"
-          />
-          <path
-            fill="#BC9357"
-            d="M578,498.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V514c0,2.6,2.1,4.8,4.8,4.8H578c2.6,0,4.8-2.1,4.8-4.8v-10.4
+            />
+            <path
+              fill="#BC9357"
+              d="M578,498.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V514c0,2.6,2.1,4.8,4.8,4.8H578c2.6,0,4.8-2.1,4.8-4.8v-10.4
 			C582.8,500.9,580.7,498.7,578,498.7z"
-          />
-
+            />
+          </g>
           {/* <!-- 6th candle blase --> */}
-          <polygon
-            fill="#967444"
-            points="634.8,578 669.8,578 676.9,538.7 627.8,538.7 		"
-          />
-          <polygon
-            fill="#967444"
-            points="629.4,498.7 675.3,498.7 684.5,483.1 620.1,483.1 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M677.2,518.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V534c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
+          <g
+            className="pointer"
+            onClick={() => {
+              setCandle6Presence(!candle6Presence);
+              if (candle6Lit) {
+                setCandle6Lit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="634.8,578 669.8,578 676.9,538.7 627.8,538.7 		"
+            />
+            <polygon
+              fill="#967444"
+              points="629.4,498.7 675.3,498.7 684.5,483.1 620.1,483.1 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M677.2,518.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V534c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
 			C682,520.9,679.8,518.7,677.2,518.7z"
-          />
-          <path
-            fill="#BC9357"
-            d="M677.2,498.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V514c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
+            />
+            <path
+              fill="#BC9357"
+              d="M677.2,498.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V514c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
 			C682,500.9,679.8,498.7,677.2,498.7z"
-          />
+            />
+          </g>
           {/* 
 <!-- 5th candle blase --> */}
-
-          <polygon
-            fill="#967444"
-            points="734.8,578 769.8,578 776.9,538.7 727.8,538.7 		"
-          />
-          <polygon
-            fill="#967444"
-            points="729.4,498.7 775.3,498.7 784.5,483.1 720.1,483.1 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M777.2,518.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V534c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
+          <g
+            className="pointer"
+            onClick={() => {
+              setCandle5Presence(!candle5Presence);
+              if (candle5Lit) {
+                setCandle5Lit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="734.8,578 769.8,578 776.9,538.7 727.8,538.7 		"
+            />
+            <polygon
+              fill="#967444"
+              points="729.4,498.7 775.3,498.7 784.5,483.1 720.1,483.1 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M777.2,518.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V534c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
 			C782,520.9,779.8,518.7,777.2,518.7z"
-          />
-          <path
-            fill="#BC9357"
-            d="M777.2,498.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V514c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
+            />
+            <path
+              fill="#BC9357"
+              d="M777.2,498.7h-49.7c-2.6,0-4.8,2.1-4.8,4.8V514c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8v-10.4
 			C782,500.9,779.8,498.7,777.2,498.7z"
-          />
-
-          {/* <!-- 8th candle base --> */}
-
-          <polygon
-            fill="#967444"
-            points="1265,578 1230,578 1223,538.7 1272,538.7 		"
-          />
-          <polygon
-            fill="#967444"
-            points="1270.5,498.7 1224.5,498.7 1215.3,483.1 1279.7,483.1 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M1222.6,518.7h49.7c2.6,0,4.8,2.1,4.8,4.8V534c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
+            />
+          </g>
+          {/* <!-- 1st candle base --> */}
+          <g
+            className="pointer"
+            onClick={() => {
+              setCandle1Presence(!candle1Presence);
+              if (candle1Lit) {
+                setCandle1Lit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="1265,578 1230,578 1223,538.7 1272,538.7 		"
+            />
+            <polygon
+              fill="#967444"
+              points="1270.5,498.7 1224.5,498.7 1215.3,483.1 1279.7,483.1 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M1222.6,518.7h49.7c2.6,0,4.8,2.1,4.8,4.8V534c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
 			C1217.9,520.9,1220,518.7,1222.6,518.7z"
-          />
-          <path
-            fill="#BC9357"
-            d="M1222.6,498.7h49.7c2.6,0,4.8,2.1,4.8,4.8V514c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
+            />
+            <path
+              fill="#BC9357"
+              d="M1222.6,498.7h49.7c2.6,0,4.8,2.1,4.8,4.8V514c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
 			C1217.9,500.9,1220,498.7,1222.6,498.7z"
-          />
+            />
+          </g>
 
-          {/* <!-- 7th candle base --> */}
-          <polygon
-            fill="#967444"
-            points="1164.3,578 1129.3,578 1122.3,538.7 1171.4,538.7 		"
-          />
-          <polygon
-            fill="#967444"
-            points="1169.8,498.7 1123.9,498.7 1114.6,483.1 1179,483.1 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M1122,518.7h49.7c2.6,0,4.8,2.1,4.8,4.8V534c0,2.6-2.1,4.8-4.8,4.8H1122c-2.6,0-4.8-2.1-4.8-4.8v-10.4
+          {/* <!-- 2nd candle base --> */}
+          <g
+            className="pointer"
+            onClick={() => {
+              setCandle2Presence(!candle2Presence);
+              if (candle2Lit) {
+                setCandle2Lit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="1164.3,578 1129.3,578 1122.3,538.7 1171.4,538.7 		"
+            />
+            <polygon
+              fill="#967444"
+              points="1169.8,498.7 1123.9,498.7 1114.6,483.1 1179,483.1 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M1122,518.7h49.7c2.6,0,4.8,2.1,4.8,4.8V534c0,2.6-2.1,4.8-4.8,4.8H1122c-2.6,0-4.8-2.1-4.8-4.8v-10.4
 			C1117.2,520.9,1119.3,518.7,1122,518.7z"
-          />
-          <path
-            fill="#BC9357"
-            d="M1122,498.7h49.7c2.6,0,4.8,2.1,4.8,4.8V514c0,2.6-2.1,4.8-4.8,4.8H1122c-2.6,0-4.8-2.1-4.8-4.8v-10.4
+            />
+            <path
+              fill="#BC9357"
+              d="M1122,498.7h49.7c2.6,0,4.8,2.1,4.8,4.8V514c0,2.6-2.1,4.8-4.8,4.8H1122c-2.6,0-4.8-2.1-4.8-4.8v-10.4
 			C1117.2,500.9,1119.3,498.7,1122,498.7z"
-          />
+            />
+          </g>
           {/* <!-- 
-6th candle base --> */}
-
-          <polygon
-            fill="#967444"
-            points="1065.2,578 1030.2,578 1023.1,538.7 1072.2,538.7 		"
-          />
-          <polygon
-            fill="#967444"
-            points="1070.6,498.7 1024.7,498.7 1015.5,483.1 1079.9,483.1 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M1022.8,518.7h49.7c2.6,0,4.8,2.1,4.8,4.8V534c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
+3rd candle base --> */}
+          <g
+            className="pointer"
+            onClick={() => {
+              setCandle3Presence(!candle3Presence);
+              if (candle3Lit) {
+                setCandle3Lit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="1065.2,578 1030.2,578 1023.1,538.7 1072.2,538.7 		"
+            />
+            <polygon
+              fill="#967444"
+              points="1070.6,498.7 1024.7,498.7 1015.5,483.1 1079.9,483.1 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M1022.8,518.7h49.7c2.6,0,4.8,2.1,4.8,4.8V534c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
 			C1018,520.9,1020.2,518.7,1022.8,518.7z"
-          />
-          <path
-            fill="#BC9357"
-            d="M1022.8,498.7h49.7c2.6,0,4.8,2.1,4.8,4.8V514c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
+            />
+            <path
+              fill="#BC9357"
+              d="M1022.8,498.7h49.7c2.6,0,4.8,2.1,4.8,4.8V514c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
 			C1018,500.9,1020.2,498.7,1022.8,498.7z"
-          />
-
+            />
+          </g>
           {/* 
-<!-- 5th candle base --> */}
-          <polygon
-            fill="#967444"
-            points="965.2,578 930.2,578 923.1,538.7 972.2,538.7 		"
-          />
-          <polygon
-            fill="#967444"
-            points="970.6,498.7 924.7,498.7 915.5,483.1 979.9,483.1 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M922.8,518.7h49.7c2.6,0,4.8,2.1,4.8,4.8V534c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
+<!-- 4th candle base --> */}
+          <g
+            className="pointer"
+            onClick={() => {
+              setCandle4Presence(!candle4Presence);
+              if (candle4Lit) {
+                setCandle4Lit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="965.2,578 930.2,578 923.1,538.7 972.2,538.7 		"
+            />
+            <polygon
+              fill="#967444"
+              points="970.6,498.7 924.7,498.7 915.5,483.1 979.9,483.1 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M922.8,518.7h49.7c2.6,0,4.8,2.1,4.8,4.8V534c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
 			C918,520.9,920.2,518.7,922.8,518.7z"
-          />
-          <path
-            fill="#BC9357"
-            d="M922.8,498.7h49.7c2.6,0,4.8,2.1,4.8,4.8V514c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
+            />
+            <path
+              fill="#BC9357"
+              d="M922.8,498.7h49.7c2.6,0,4.8,2.1,4.8,4.8V514c0,2.6-2.1,4.8-4.8,4.8h-49.7c-2.6,0-4.8-2.1-4.8-4.8v-10.4
 			C918,500.9,920.2,498.7,922.8,498.7z"
-          />
+            />
+          </g>
 
           {/* <!-- shamash base --> */}
-          <polygon
-            fill="#967444"
-            points="832.5,480.5 867.5,480.5 874.5,441.2 825.5,441.2 		"
-          />
-          <polygon
-            fill="#967444"
-            points="827,401.2 873,401.2 882.2,385.6 850,385.6 817.8,385.6 		"
-          />
-          <path
-            fill="#AD884D"
-            d="M874.9,421.2h-49.7c-2.6,0-4.8,2.1-4.8,4.8v10.4c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8V426
+          <g
+            className="pointer"
+            onClick={() => {
+              setShamashPresence(!shamashPresence);
+              if (shamashLit) {
+                setShamashLit(false);
+                setNumberLit(numberLit - 1);
+              }
+            }}
+          >
+            <polygon
+              fill="#967444"
+              points="832.5,480.5 867.5,480.5 874.5,441.2 825.5,441.2 		"
+            />
+            <polygon
+              fill="#967444"
+              points="827,401.2 873,401.2 882.2,385.6 850,385.6 817.8,385.6 		"
+            />
+            <path
+              fill="#AD884D"
+              d="M874.9,421.2h-49.7c-2.6,0-4.8,2.1-4.8,4.8v10.4c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8V426
 			C879.6,423.4,877.5,421.2,874.9,421.2z"
-          />
-          <path
-            fill="#BC9357"
-            d="M874.9,401.2h-49.7c-2.6,0-4.8,2.1-4.8,4.8v10.4c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8V406
+            />
+            <path
+              fill="#BC9357"
+              d="M874.9,401.2h-49.7c-2.6,0-4.8,2.1-4.8,4.8v10.4c0,2.6,2.1,4.8,4.8,4.8h49.7c2.6,0,4.8-2.1,4.8-4.8V406
 			C879.6,403.4,877.5,401.2,874.9,401.2z"
-          />
-
+            />
+          </g>
           {/* <!-- Menorah spine and base --> */}
           <path
             fill="#CC9E62"
@@ -594,8 +685,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
-                    exit="hidden"
+                    animate={candle8Flicker ? "flickering" : "visible"}
                   >
                     <path
                       fill="#FEFEDE"
@@ -611,19 +701,20 @@ function Menorah({
                 )}
                 {/* <!-- 8th candle wick and wax --> */}
 
-                <motion.g
-                // variants={candleWaxVariants}
-                // initial="hidden"
-                // animate="visible"
-                >
+                <motion.g>
                   <path
+                    className="pointer"
                     onClick={() => {
                       setCandle8Lit(!candle8Lit);
 
                       if (candle8Lit) {
                         setNumberLit(numberLit - 1);
+                        setCandle8Flicker(false);
                       } else if (!candle8Lit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setCandle8Flicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#d5e3ec"
@@ -639,19 +730,23 @@ function Menorah({
               {/* <!-- 8th candle corona --> */}
               {candle8Lit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setCandle8Lit(!candle8Lit);
 
                     if (candle8Lit) {
                       setNumberLit(numberLit - 1);
+                      setCandle8Flicker(false);
                     } else if (!candle8Lit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setCandle8Flicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
-                  exit="hidden"
+                  animate={candle8Flicker ? "flickering" : "visible"}
                 >
                   <circle
                     opacity="0.1"
@@ -686,8 +781,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
-                    exit="hidden"
+                    animate={candle7Flicker ? "flickering" : "visible"}
                   >
                     <path
                       fill="#FEFEDE"
@@ -703,19 +797,20 @@ function Menorah({
                 )}
                 {/* <!-- 7th candle wick and wax --> */}
 
-                <motion.g
-                // variants={candleWaxVariants}
-                // initial="hidden"
-                // animate="visible"
-                >
+                <motion.g>
                   <path
+                    className="pointer"
                     onClick={() => {
                       setCandle7Lit(!candle7Lit);
 
                       if (candle7Lit) {
                         setNumberLit(numberLit - 1);
+                        setCandle7Flicker(false);
                       } else if (!candle7Lit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setCandle7Flicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#d5e3ec"
@@ -730,19 +825,23 @@ function Menorah({
               {/* <!-- 7th candle corona --> */}
               {candle7Lit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setCandle7Lit(!candle7Lit);
 
                     if (candle7Lit) {
                       setNumberLit(numberLit - 1);
+                      setCandle7Flicker(false);
                     } else if (!candle7Lit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setCandle7Flicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
-                  exit="hidden"
+                  animate={candle7Flicker ? "flickering" : "visible"}
                 >
                   <circle
                     opacity="0.1"
@@ -777,7 +876,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
+                    animate={candle6Flicker ? "flickering" : "visible"}
                   >
                     <path
                       fill="#FEFEDE"
@@ -792,19 +891,20 @@ function Menorah({
                   </motion.g>
                 )}
                 {/* <!-- 6th candle wick and wax --> */}
-                <motion.g
-                // variants={candleWaxVariants}
-                // initial="hidden"
-                // animate="visible"
-                >
+                <motion.g>
                   <path
+                    className="pointer"
                     onClick={() => {
                       setCandle6Lit(!candle6Lit);
 
                       if (candle6Lit) {
                         setNumberLit(numberLit - 1);
+                        setCandle6Flicker(false);
                       } else if (!candle6Lit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setCandle6Flicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#d5e3ec"
@@ -819,18 +919,23 @@ function Menorah({
               {/* <!-- 6th candle corona --> */}
               {candle6Lit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setCandle6Lit(!candle6Lit);
 
                     if (candle6Lit) {
                       setNumberLit(numberLit - 1);
+                      setCandle6Flicker(false);
                     } else if (!candle6Lit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setCandle6Flicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={candle6Flicker ? "flickering" : "visible"}
                 >
                   <circle
                     opacity="0.1"
@@ -865,7 +970,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
+                    animate={candle5Flicker ? "flickering" : "visible"}
                   >
                     <path
                       fill="#FEFEDE"
@@ -887,13 +992,18 @@ function Menorah({
                 // animate="visible"
                 >
                   <path
+                    className="pointer"
                     onClick={() => {
                       setCandle5Lit(!candle5Lit);
 
                       if (candle5Lit) {
                         setNumberLit(numberLit - 1);
+                        setCandle5Flicker(false);
                       } else if (!candle5Lit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setCandle5Flicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#d5e3ec"
@@ -908,18 +1018,23 @@ function Menorah({
               {/* <!-- 5th candle corona --> */}
               {candle5Lit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setCandle5Lit(!candle5Lit);
 
                     if (candle5Lit) {
                       setNumberLit(numberLit - 1);
+                      setCandle5Flicker(false);
                     } else if (!candle5Lit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setCandle5Flicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={candle5Flicker ? "flickering" : "visible"}
                 >
                   <circle
                     opacity="0.1"
@@ -954,7 +1069,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
+                    animate={candle1Flicker ? "flickering" : "visible"}
                   >
                     <path
                       fill="#FEFEDE"
@@ -976,13 +1091,18 @@ function Menorah({
                 // animate="visible"
                 >
                   <path
+                    className="pointer"
                     onClick={() => {
                       setCandle1Lit(!candle1Lit);
 
                       if (candle1Lit) {
                         setNumberLit(numberLit - 1);
+                        setCandle1Flicker(false);
                       } else if (!candle1Lit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setCandle1Flicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#d5e3ec"
@@ -998,18 +1118,23 @@ function Menorah({
               {/* <!-- 1st candle corona --> */}
               {candle1Lit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setCandle1Lit(!candle1Lit);
 
                     if (candle1Lit) {
                       setNumberLit(numberLit - 1);
+                      setCandle1Flicker(false);
                     } else if (!candle1Lit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setCandle1Flicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={candle1Flicker ? "flickering" : "visible"}
                 >
                   <circle
                     opacity="0.1"
@@ -1044,7 +1169,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
+                    animate={candle2Flicker ? "flickering" : "visible"}
                   >
                     <path
                       fill="#FEFEDE"
@@ -1061,19 +1186,20 @@ function Menorah({
 
                 {/* <!-- 2nd candle wick and wax --> */}
 
-                <motion.g
-                // variants={candleWaxVariants}
-                // initial="hidden"
-                // animate="visible"
-                >
+                <motion.g>
                   <path
+                    className="pointer"
                     onClick={() => {
                       setCandle2Lit(!candle2Lit);
 
                       if (candle2Lit) {
                         setNumberLit(numberLit - 1);
+                        setCandle2Flicker(false);
                       } else if (!candle2Lit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setCandle2Flicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#d5e3ec"
@@ -1088,18 +1214,23 @@ function Menorah({
               {/* <!-- 2nd candle corona --> */}
               {candle2Lit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setCandle2Lit(!candle2Lit);
 
                     if (candle2Lit) {
                       setNumberLit(numberLit - 1);
+                      setCandle2Flicker(false);
                     } else if (!candle2Lit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setCandle2Flicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={candle2Flicker ? "flickering" : "visible"}
                 >
                   <circle
                     opacity="0.1"
@@ -1134,7 +1265,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
+                    animate={candle3Flicker ? "flickering" : "visible"}
                   >
                     <path
                       fill="#FEFEDE"
@@ -1151,19 +1282,20 @@ function Menorah({
 
                 {/* <!-- 3rd candle wick and wax --> */}
 
-                <motion.g
-                // variants={candleWaxVariants}
-                // initial="hidden"
-                // animate="visible"
-                >
+                <motion.g>
                   <path
+                    className="pointer"
                     onClick={() => {
                       setCandle3Lit(!candle3Lit);
 
                       if (candle3Lit) {
                         setNumberLit(numberLit - 1);
+                        setCandle3Flicker(false);
                       } else if (!candle3Lit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setCandle3Flicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#d5e3ec"
@@ -1178,18 +1310,23 @@ function Menorah({
               {/* <!-- 3rd candle corona --> */}
               {candle3Lit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setCandle3Lit(!candle3Lit);
 
                     if (candle3Lit) {
                       setNumberLit(numberLit - 1);
+                      setCandle3Flicker(false);
                     } else if (!candle3Lit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setCandle3Flicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={candle3Flicker ? "flickering" : "visible"}
                 >
                   <circle
                     opacity="0.1"
@@ -1224,7 +1361,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
+                    animate={candle4Flicker ? "flickering" : "visible"}
                   >
                     <path
                       fill="#FEFEDE"
@@ -1247,13 +1384,18 @@ function Menorah({
                 // animate="visible"
                 >
                   <path
+                    className="pointer"
                     onClick={() => {
                       setCandle4Lit(!candle4Lit);
 
                       if (candle4Lit) {
                         setNumberLit(numberLit - 1);
+                        setCandle4Flicker(false);
                       } else if (!candle4Lit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setCandle4Flicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#d5e3ec"
@@ -1268,18 +1410,23 @@ function Menorah({
               {/* <!-- 4th candle corona --> */}
               {candle4Lit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setCandle4Lit(!candle4Lit);
 
                     if (candle4Lit) {
                       setNumberLit(numberLit - 1);
+                      setCandle4Flicker(false);
                     } else if (!candle4Lit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setCandle4Flicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={candle4Flicker ? "flickering" : "visible"}
                 >
                   <circle
                     opacity="0.1"
@@ -1314,7 +1461,7 @@ function Menorah({
                   <motion.g
                     variants={flameVariants}
                     initial="hidden"
-                    animate="visible"
+                    animate={shamashFlicker ? "flickering" : "visible"}
                   >
                     <path
                       id="shamash__outer-flame"
@@ -1333,19 +1480,20 @@ function Menorah({
 
                 {/* <!-- shamash wick and wax --> */}
 
-                <motion.g
-                // variants={candleWaxVariants}
-                // initial="hidden"
-                // animate="visible"
-                >
+                <motion.g>
                   <path
+                    className="pointer"
                     onClick={() => {
                       setShamashLit(!shamashLit);
 
                       if (shamashLit) {
                         setNumberLit(numberLit - 1);
+                        setShamashFlicker(false);
                       } else if (!shamashLit) {
                         setNumberLit(numberLit + 1);
+                        setTimeout(() => {
+                          setShamashFlicker(true);
+                        }, 2000);
                       }
                     }}
                     fill="#7daaca"
@@ -1360,18 +1508,24 @@ function Menorah({
               {/* <!-- shamash corona --> */}
               {shamashLit && (
                 <motion.g
+                  className="pointer"
                   onClick={() => {
                     setShamashLit(!shamashLit);
 
                     if (shamashLit) {
                       setNumberLit(numberLit - 1);
+                      setShamashFlicker(false);
                     } else if (!shamashLit) {
                       setNumberLit(numberLit + 1);
+                      setTimeout(() => {
+                        setShamashFlicker(true);
+                      }, 2000);
                     }
                   }}
                   variants={coronaVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={shamashFlicker ? "flickering" : "visible"}
+                  // animate="visible"
                 >
                   <circle
                     opacity="0.1"
