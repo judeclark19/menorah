@@ -586,631 +586,644 @@ function Menorah({
             d="M924.2,1294.2H775.7c-7.9,0-14.2-6.4-14.2-14.2l0,0c0-7.9,6.4-14.2,14.2-14.2h148.5
 			c7.9,0,14.2,6.4,14.2,14.2l0,0C938.5,1287.9,932.1,1294.2,924.2,1294.2z"
           />
-
-          <g>
+          {candle8Presence && (
             <g>
-              {/* <!-- 8th candle flame --> */}
+              <g>
+                {/* <!-- 8th candle flame --> */}
 
-              <motion.g
-                variants={flameVariants}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-              >
-                <path
-                  fill="#FEFEDE"
-                  d="M466.4,317.2l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  <path
+                    fill="#FEFEDE"
+                    d="M466.4,317.2l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
 					c4.7,4.7,12.4,4.7,17.2,0l2.7-2.7C467.2,326.9,468.3,321.7,466.4,317.2z"
-                />
-                <path
-                  fill="#F0CF85"
-                  d="M451.9,332.2c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
+                  />
+                  <path
+                    fill="#F0CF85"
+                    d="M451.9,332.2c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
 					l6.3,15.5c0.7,1.8,0.3,3.9-1.1,5.3l-3.2,3.2C454.9,331.9,453.4,332.4,451.9,332.2z"
-                />
-              </motion.g>
+                  />
+                </motion.g>
 
-              {/* <!-- 8th candle wick and wax --> */}
+                {/* <!-- 8th candle wick and wax --> */}
 
-              <motion.g
-                variants={candleWaxVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
-                  fill="#d5e3ec"
-                  d="M468,342.3h-31c-5,0-9,4-9,9v131.8H477V351.3C477,346.3,473,342.3,468,342.3z"
-                />
-                <path
-                  fill="#504B42"
-                  d="M452.5,324.4L452.5,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C454.3,325.3,453.5,324.4,452.5,324.4z"
-                />
-              </motion.g>
-            </g>
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M468,342.3h-31c-5,0-9,4-9,9v131.8H477V351.3C477,346.3,473,342.3,468,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M452.5,324.4L452.5,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C454.3,325.3,453.5,324.4,452.5,324.4z"
+                  />
+                </motion.g>
+              </g>
 
-            {/* <!-- 8th candle corona --> */}
-
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="450.7"
-                cy="319"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="450.7"
-                cy="319"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="450.7"
-                cy="319"
-                r="47.2"
-              />
-            </motion.g>
-          </g>
-          <g>
-            <g>
-              {/* <!-- 7th candle flame --> */}
+              {/* <!-- 8th candle corona --> */}
 
               <motion.g
-                variants={flameVariants}
+                variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
               >
-                <path
+                <circle
+                  opacity="0.1"
                   fill="#FEFEDE"
-                  d="M567.1,317.2l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
+                  cx="450.7"
+                  cy="319"
+                  r="115.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="450.7"
+                  cy="319"
+                  r="79.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="450.7"
+                  cy="319"
+                  r="47.2"
+                />
+              </motion.g>
+            </g>
+          )}
+          {candle7Presence && (
+            <g>
+              <g>
+                {/* <!-- 7th candle flame --> */}
+
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  <path
+                    fill="#FEFEDE"
+                    d="M567.1,317.2l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
 					c4.7,4.7,12.4,4.7,17.2,0l2.7-2.7C567.9,326.9,568.9,321.7,567.1,317.2z"
-                />
-                <path
-                  fill="#F0CF85"
-                  d="M552.5,332.2c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
+                  />
+                  <path
+                    fill="#F0CF85"
+                    d="M552.5,332.2c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
 					l6.3,15.5c0.7,1.8,0.3,3.9-1.1,5.3l-3.2,3.2C555.6,331.9,554.1,332.4,552.5,332.2z"
-                />
-              </motion.g>
+                  />
+                </motion.g>
 
-              {/* <!-- 7th candle wick and wax --> */}
+                {/* <!-- 7th candle wick and wax --> */}
+
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M568.7,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C577.7,346.3,573.7,342.3,568.7,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M553.2,324.4L553.2,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C555,325.3,554.2,324.4,553.2,324.4z"
+                  />
+                </motion.g>
+              </g>
+              {/* <!-- 7th candle corona --> */}
 
               <motion.g
-                variants={candleWaxVariants}
+                variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
+                exit="hidden"
               >
-                <path
-                  fill="#d5e3ec"
-                  d="M568.7,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C577.7,346.3,573.7,342.3,568.7,342.3z"
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="551.3"
+                  cy="319"
+                  r="115.7"
                 />
-                <path
-                  fill="#504B42"
-                  d="M553.2,324.4L553.2,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C555,325.3,554.2,324.4,553.2,324.4z"
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="551.3"
+                  cy="319"
+                  r="79.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="551.3"
+                  cy="319"
+                  r="47.2"
                 />
               </motion.g>
             </g>
-            {/* <!-- 7th candle corona --> */}
-
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="551.3"
-                cy="319"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="551.3"
-                cy="319"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="551.3"
-                cy="319"
-                r="47.2"
-              />
-            </motion.g>
-          </g>
-          <g>
+          )}
+          {candle6Presence && (
             <g>
-              {/* <!-- 6th candle flame --> */}
+              <g>
+                {/* <!-- 6th candle flame --> */}
 
-              <motion.g
-                variants={flameVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
-                  fill="#FEFEDE"
-                  d="M666.3,317.2l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#FEFEDE"
+                    d="M666.3,317.2l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
 					c4.7,4.7,12.4,4.7,17.2,0l2.7-2.7C667.1,326.9,668.1,321.7,666.3,317.2z"
-                />
-                <path
-                  fill="#F0CF85"
-                  d="M651.7,332.2c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
+                  />
+                  <path
+                    fill="#F0CF85"
+                    d="M651.7,332.2c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
 					l6.3,15.5c0.7,1.8,0.3,3.9-1.1,5.3l-3.2,3.2C654.7,331.9,653.2,332.4,651.7,332.2z"
-                />
-              </motion.g>
+                  />
+                </motion.g>
 
-              {/* <!-- 6th candle wick and wax --> */}
+                {/* <!-- 6th candle wick and wax --> */}
+
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M667.8,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C676.9,346.3,672.8,342.3,667.8,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M652.3,324.4L652.3,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C654.2,325.3,653.3,324.4,652.3,324.4z"
+                  />
+                </motion.g>
+              </g>
+              {/* <!-- 6th candle corona --> */}
 
               <motion.g
-                variants={candleWaxVariants}
+                variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <path
-                  fill="#d5e3ec"
-                  d="M667.8,342.3h-31c-5,0-9,4-9,9v131.8h49.1V351.3C676.9,346.3,672.8,342.3,667.8,342.3z"
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="652.3"
+                  cy="319"
+                  r="115.7"
                 />
-                <path
-                  fill="#504B42"
-                  d="M652.3,324.4L652.3,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C654.2,325.3,653.3,324.4,652.3,324.4z"
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="650.5"
+                  cy="319"
+                  r="79.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="650.5"
+                  cy="319"
+                  r="47.2"
                 />
               </motion.g>
             </g>
-            {/* <!-- 6th candle corona --> */}
-
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="652.3"
-                cy="319"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="650.5"
-                cy="319"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="650.5"
-                cy="319"
-                r="47.2"
-              />
-            </motion.g>
-          </g>
-          <g>
+          )}
+          {candle5Presence && (
             <g>
-              {/* <!-- 5th candle flame --> */}
+              <g>
+                {/* <!-- 5th candle flame --> */}
 
-              <motion.g
-                variants={flameVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
-                  fill="#FEFEDE"
-                  d="M765.4,317.2l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#FEFEDE"
+                    d="M765.4,317.2l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
 					c4.7,4.7,12.4,4.7,17.2,0l2.7-2.7C766.2,326.9,767.3,321.7,765.4,317.2z"
-                />
-                <path
-                  fill="#F0CF85"
-                  d="M750.9,332.2c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
+                  />
+                  <path
+                    fill="#F0CF85"
+                    d="M750.9,332.2c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
 					l6.3,15.5c0.7,1.8,0.3,3.9-1.1,5.3l-3.2,3.2C753.9,331.9,752.4,332.4,750.9,332.2z"
-                />
-              </motion.g>
+                  />
+                </motion.g>
 
-              {/* <!-- 5th candle wick and wax --> */}
+                {/* <!-- 5th candle wick and wax --> */}
+
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M767,342.3h-31c-5,0-9,4-9,9v131.8H776V351.3C776,346.3,772,342.3,767,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M751.5,324.4L751.5,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C753.3,325.3,752.5,324.4,751.5,324.4z"
+                  />
+                </motion.g>
+              </g>
+              {/* <!-- 5th candle corona --> */}
 
               <motion.g
-                variants={candleWaxVariants}
+                variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <path
-                  fill="#d5e3ec"
-                  d="M767,342.3h-31c-5,0-9,4-9,9v131.8H776V351.3C776,346.3,772,342.3,767,342.3z"
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="751.5"
+                  cy="319"
+                  r="115.7"
                 />
-                <path
-                  fill="#504B42"
-                  d="M751.5,324.4L751.5,324.4c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C753.3,325.3,752.5,324.4,751.5,324.4z"
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="749.7"
+                  cy="319"
+                  r="79.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="749.7"
+                  cy="319"
+                  r="47.2"
                 />
               </motion.g>
             </g>
-            {/* <!-- 5th candle corona --> */}
+          )}
+          {candle1Presence && (
+            <g>
+              <motion.g>
+                {/* <!-- 1st candle flame --> */}
 
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="751.5"
-                cy="319"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="749.7"
-                cy="319"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="749.7"
-                cy="319"
-                r="47.2"
-              />
-            </motion.g>
-          </g>
-          <g>
-            <motion.g
-              onMouseEnter={() => {
-                console.log("hover 1");
-              }}
-            >
-              {/* <!-- 1st candle flame --> */}
-
-              <motion.g
-                variants={flameVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
-                  fill="#FEFEDE"
-                  d="M1233.6,317.2l9.5-23.3c1.6-4,7.3-4,8.9,0l9.5,23.3c1.8,4.5,0.8,9.7-2.7,13.1l-2.7,2.7
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#FEFEDE"
+                    d="M1233.6,317.2l9.5-23.3c1.6-4,7.3-4,8.9,0l9.5,23.3c1.8,4.5,0.8,9.7-2.7,13.1l-2.7,2.7
 					c-4.7,4.7-12.4,4.7-17.2,0l-2.7-2.7C1232.8,326.9,1231.7,321.7,1233.6,317.2z"
-                />
-                <path
-                  fill="#F0CF85"
-                  d="M1248.1,332.2c1.1-0.1,2.2-0.7,3-1.5l3.1-3.1c1.4-1.4,1.8-3.5,1.1-5.3l-6.3-15.5c-0.5-1.3-2.4-1.3-3,0
+                  />
+                  <path
+                    fill="#F0CF85"
+                    d="M1248.1,332.2c1.1-0.1,2.2-0.7,3-1.5l3.1-3.1c1.4-1.4,1.8-3.5,1.1-5.3l-6.3-15.5c-0.5-1.3-2.4-1.3-3,0
 					l-6.3,15.5c-0.7,1.8-0.3,3.9,1.1,5.3l3.2,3.2C1245.1,331.9,1246.6,332.4,1248.1,332.2z"
-                />
+                  />
+                </motion.g>
+
+                {/* <!-- 1st candle wick and wax --> */}
+
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M1232,342.3h31c5,0,9,4,9,9v131.8H1223V351.3C1223,346.3,1227,342.3,1232,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M1247.5,324.4L1247.5,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1245.7,325.3,1246.5,324.4,1247.5,324.4z"
+                  />
+                </motion.g>
               </motion.g>
 
-              {/* <!-- 1st candle wick and wax --> */}
+              {/* <!-- 1st candle corona --> */}
 
               <motion.g
-                variants={candleWaxVariants}
+                variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <path
-                  fill="#d5e3ec"
-                  d="M1232,342.3h31c5,0,9,4,9,9v131.8H1223V351.3C1223,346.3,1227,342.3,1232,342.3z"
-                />
-                <path
-                  fill="#504B42"
-                  d="M1247.5,324.4L1247.5,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1245.7,325.3,1246.5,324.4,1247.5,324.4z"
-                />
-              </motion.g>
-            </motion.g>
-
-            {/* <!-- 1st candle corona --> */}
-
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1247.5"
-                cy="319"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1249.3"
-                cy="319"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1249.3"
-                cy="319"
-                r="47.2"
-              />
-            </motion.g>
-          </g>
-          <g>
-            <motion.g>
-              {/* <!-- 2nd candle flame --> */}
-
-              <motion.g
-                variants={flameVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
+                <circle
+                  opacity="0.1"
                   fill="#FEFEDE"
-                  d="M1132.9,317.2l9.5-23.3c1.6-4,7.3-4,8.9,0l9.5,23.3c1.8,4.5,0.8,9.7-2.7,13.1l-2.7,2.7
+                  cx="1247.5"
+                  cy="319"
+                  r="115.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="1249.3"
+                  cy="319"
+                  r="79.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="1249.3"
+                  cy="319"
+                  r="47.2"
+                />
+              </motion.g>
+            </g>
+          )}
+          {candle2Presence && (
+            <g>
+              <motion.g>
+                {/* <!-- 2nd candle flame --> */}
+
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#FEFEDE"
+                    d="M1132.9,317.2l9.5-23.3c1.6-4,7.3-4,8.9,0l9.5,23.3c1.8,4.5,0.8,9.7-2.7,13.1l-2.7,2.7
 					c-4.7,4.7-12.4,4.7-17.2,0l-2.7-2.7C1132.1,326.9,1131.1,321.7,1132.9,317.2z"
-                />
-                <path
-                  fill="#F0CF85"
-                  d="M1147.5,332.2c1.1-0.1,2.2-0.7,3-1.5l3.1-3.1c1.4-1.4,1.8-3.5,1.1-5.3l-6.3-15.5c-0.5-1.3-2.4-1.3-3,0
+                  />
+                  <path
+                    fill="#F0CF85"
+                    d="M1147.5,332.2c1.1-0.1,2.2-0.7,3-1.5l3.1-3.1c1.4-1.4,1.8-3.5,1.1-5.3l-6.3-15.5c-0.5-1.3-2.4-1.3-3,0
 					l-6.3,15.5c-0.7,1.8-0.3,3.9,1.1,5.3l3.2,3.2C1144.4,331.9,1145.9,332.4,1147.5,332.2z"
-                />
-              </motion.g>
+                  />
+                </motion.g>
 
-              {/* <!-- 2nd candle wick and wax --> */}
+                {/* <!-- 2nd candle wick and wax --> */}
+
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M1131.3,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1122.3,346.3,1126.3,342.3,1131.3,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M1146.8,324.4L1146.8,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1145,325.3,1145.8,324.4,1146.8,324.4z"
+                  />
+                </motion.g>
+              </motion.g>
+              {/* <!-- 2nd candle corona --> */}
 
               <motion.g
-                variants={candleWaxVariants}
+                variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <path
-                  fill="#d5e3ec"
-                  d="M1131.3,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1122.3,346.3,1126.3,342.3,1131.3,342.3z"
-                />
-                <path
-                  fill="#504B42"
-                  d="M1146.8,324.4L1146.8,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1145,325.3,1145.8,324.4,1146.8,324.4z"
-                />
-              </motion.g>
-            </motion.g>
-            {/* <!-- 2nd candle corona --> */}
-
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1146.8"
-                cy="319"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1148.7"
-                cy="319"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1148.7"
-                cy="319"
-                r="47.2"
-              />
-            </motion.g>
-          </g>
-          <g>
-            <motion.g>
-              {/* <!-- 3rd candle flame --> */}
-
-              <motion.g
-                variants={flameVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
+                <circle
+                  opacity="0.1"
                   fill="#FEFEDE"
-                  d="M1033.7,317.2l9.5-23.3c1.6-4,7.3-4,8.9,0l9.5,23.3c1.8,4.5,0.8,9.7-2.7,13.1l-2.7,2.7
+                  cx="1146.8"
+                  cy="319"
+                  r="115.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="1148.7"
+                  cy="319"
+                  r="79.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="1148.7"
+                  cy="319"
+                  r="47.2"
+                />
+              </motion.g>
+            </g>
+          )}
+          {candle3Presence && (
+            <g>
+              <motion.g>
+                {/* <!-- 3rd candle flame --> */}
+
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#FEFEDE"
+                    d="M1033.7,317.2l9.5-23.3c1.6-4,7.3-4,8.9,0l9.5,23.3c1.8,4.5,0.8,9.7-2.7,13.1l-2.7,2.7
 					c-4.7,4.7-12.4,4.7-17.2,0l-2.7-2.7C1032.9,326.9,1031.9,321.7,1033.7,317.2z"
-                />
-                <path
-                  fill="#F0CF85"
-                  d="M1048.3,332.2c1.1-0.1,2.2-0.7,3-1.5l3.1-3.1c1.4-1.4,1.8-3.5,1.1-5.3l-6.3-15.5c-0.5-1.3-2.4-1.3-3,0
+                  />
+                  <path
+                    fill="#F0CF85"
+                    d="M1048.3,332.2c1.1-0.1,2.2-0.7,3-1.5l3.1-3.1c1.4-1.4,1.8-3.5,1.1-5.3l-6.3-15.5c-0.5-1.3-2.4-1.3-3,0
 					l-6.3,15.5c-0.7,1.8-0.3,3.9,1.1,5.3l3.2,3.2C1045.3,331.9,1046.8,332.4,1048.3,332.2z"
-                />
-              </motion.g>
+                  />
+                </motion.g>
 
-              {/* <!-- 3rd candle wick and wax --> */}
+                {/* <!-- 3rd candle wick and wax --> */}
+
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M1032.2,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1023.1,346.3,1027.2,342.3,1032.2,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M1047.7,324.4L1047.7,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1045.8,325.3,1046.7,324.4,1047.7,324.4z"
+                  />
+                </motion.g>
+              </motion.g>
+              {/* <!-- 3rd candle corona --> */}
 
               <motion.g
-                variants={candleWaxVariants}
+                variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <path
-                  fill="#d5e3ec"
-                  d="M1032.2,342.3h31c5,0,9,4,9,9v131.8h-49.1V351.3C1023.1,346.3,1027.2,342.3,1032.2,342.3z"
-                />
-                <path
-                  fill="#504B42"
-                  d="M1047.7,324.4L1047.7,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C1045.8,325.3,1046.7,324.4,1047.7,324.4z"
-                />
-              </motion.g>
-            </motion.g>
-            {/* <!-- 3rd candle corona --> */}
-
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1047.7"
-                cy="319"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1049.5"
-                cy="319"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="1049.5"
-                cy="319"
-                r="47.2"
-              />
-            </motion.g>
-          </g>
-          <g>
-            <g>
-              {/* <!-- 4th candle flame --> */}
-
-              <motion.g
-                variants={flameVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
+                <circle
+                  opacity="0.1"
                   fill="#FEFEDE"
-                  d="M934.6,317.2l9.5-23.3c1.6-4,7.3-4,8.9,0l9.5,23.3c1.8,4.5,0.8,9.7-2.7,13.1l-2.7,2.7
+                  cx="1047.7"
+                  cy="319"
+                  r="115.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="1049.5"
+                  cy="319"
+                  r="79.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="1049.5"
+                  cy="319"
+                  r="47.2"
+                />
+              </motion.g>
+            </g>
+          )}
+          {candle4Presence && (
+            <g>
+              <g>
+                {/* <!-- 4th candle flame --> */}
+
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#FEFEDE"
+                    d="M934.6,317.2l9.5-23.3c1.6-4,7.3-4,8.9,0l9.5,23.3c1.8,4.5,0.8,9.7-2.7,13.1l-2.7,2.7
 					c-4.7,4.7-12.4,4.7-17.2,0l-2.7-2.7C933.8,326.9,932.7,321.7,934.6,317.2z"
-                />
-                <path
-                  fill="#F0CF85"
-                  d="M949.1,332.2c1.1-0.1,2.2-0.7,3-1.5l3.1-3.1c1.4-1.4,1.8-3.5,1.1-5.3l-6.3-15.5c-0.5-1.3-2.4-1.3-3,0
+                  />
+                  <path
+                    fill="#F0CF85"
+                    d="M949.1,332.2c1.1-0.1,2.2-0.7,3-1.5l3.1-3.1c1.4-1.4,1.8-3.5,1.1-5.3l-6.3-15.5c-0.5-1.3-2.4-1.3-3,0
 					l-6.3,15.5c-0.7,1.8-0.3,3.9,1.1,5.3l3.2,3.2C946.1,331.9,947.6,332.4,949.1,332.2z"
-                />
-              </motion.g>
+                  />
+                </motion.g>
 
-              {/* <!-- 4th candle wick and wax --> */}
+                {/* <!-- 4th candle wick and wax --> */}
+
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#d5e3ec"
+                    d="M933,342.3h31c5,0,9,4,9,9v131.8H924V351.3C924,346.3,928,342.3,933,342.3z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M948.5,324.4L948.5,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C946.7,325.3,947.5,324.4,948.5,324.4z"
+                  />
+                </motion.g>
+              </g>
+              {/* <!-- 4th candle corona --> */}
 
               <motion.g
-                variants={candleWaxVariants}
+                variants={coronaVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <path
-                  fill="#d5e3ec"
-                  d="M933,342.3h31c5,0,9,4,9,9v131.8H924V351.3C924,346.3,928,342.3,933,342.3z"
-                />
-                <path
-                  fill="#504B42"
-                  d="M948.5,324.4L948.5,324.4c1,0,1.8,0.8,1.8,1.8v16h-3.7v-16C946.7,325.3,947.5,324.4,948.5,324.4z"
-                />
-              </motion.g>
-            </g>
-            {/* <!-- 4th candle corona --> */}
-
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="948.5"
-                cy="319"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="950.3"
-                cy="319"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="950.3"
-                cy="319"
-                r="47.2"
-              />
-            </motion.g>
-          </g>
-          <motion.g id="shamash-group">
-            <g>
-              {/* <!-- shamash flame --> */}
-
-              <motion.g
-                variants={flameVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
-                  id="shamash__outer-flame"
+                <circle
+                  opacity="0.1"
                   fill="#FEFEDE"
-                  d="M864,219.6l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
-					c4.7,4.7,12.4,4.7,17.2,0l2.7-2.7C864.8,229.3,865.8,224.2,864,219.6z"
+                  cx="948.5"
+                  cy="319"
+                  r="115.7"
                 />
-                <path
-                  id="shamash__inner-flame"
-                  fill="#F0CF85"
-                  d="M849.4,234.7c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
-					l6.3,15.5c0.7,1.8,0.3,3.9-1.1,5.3l-3.2,3.2C852.5,234.4,851,234.9,849.4,234.7z"
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="950.3"
+                  cy="319"
+                  r="79.7"
                 />
-              </motion.g>
-
-              {/* <!-- shamash wick and wax --> */}
-
-              <motion.g
-                variants={candleWaxVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <path
-                  fill="#7daaca"
-                  d="M865.6,244.8h-31c-5,0-9,4-9,9v131.8h49.1V253.8C874.6,248.8,870.6,244.8,865.6,244.8z"
-                />
-                <path
-                  fill="#504B42"
-                  d="M850.1,226.9L850.1,226.9c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C851.9,227.8,851.1,226.9,850.1,226.9z"
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="950.3"
+                  cy="319"
+                  r="47.2"
                 />
               </motion.g>
             </g>
-            {/* <!-- shamash corona --> */}
+          )}
+          {shamashPresence && (
+            <motion.g id="shamash-group">
+              <g>
+                {/* <!-- shamash flame --> */}
 
-            <motion.g
-              variants={coronaVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="850.1"
-                cy="221.5"
-                r="115.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="848.2"
-                cy="221.5"
-                r="79.7"
-              />
-              <circle
-                opacity="0.1"
-                fill="#FEFEDE"
-                cx="848.2"
-                cy="221.5"
-                r="47.2"
-              />
+                <motion.g
+                  variants={flameVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    id="shamash__outer-flame"
+                    fill="#FEFEDE"
+                    d="M864,219.6l-9.5-23.3c-1.6-4-7.3-4-8.9,0l-9.5,23.3c-1.8,4.5-0.8,9.7,2.7,13.1l2.7,2.7
+					c4.7,4.7,12.4,4.7,17.2,0l2.7-2.7C864.8,229.3,865.8,224.2,864,219.6z"
+                  />
+                  <path
+                    id="shamash__inner-flame"
+                    fill="#F0CF85"
+                    d="M849.4,234.7c-1.1-0.1-2.2-0.7-3-1.5l-3.1-3.1c-1.4-1.4-1.8-3.5-1.1-5.3l6.3-15.5c0.5-1.3,2.4-1.3,3,0
+					l6.3,15.5c0.7,1.8,0.3,3.9-1.1,5.3l-3.2,3.2C852.5,234.4,851,234.9,849.4,234.7z"
+                  />
+                </motion.g>
+
+                {/* <!-- shamash wick and wax --> */}
+
+                <motion.g
+                  variants={candleWaxVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <path
+                    fill="#7daaca"
+                    d="M865.6,244.8h-31c-5,0-9,4-9,9v131.8h49.1V253.8C874.6,248.8,870.6,244.8,865.6,244.8z"
+                  />
+                  <path
+                    fill="#504B42"
+                    d="M850.1,226.9L850.1,226.9c-1,0-1.8,0.8-1.8,1.8v16h3.7v-16C851.9,227.8,851.1,226.9,850.1,226.9z"
+                  />
+                </motion.g>
+              </g>
+              {/* <!-- shamash corona --> */}
+
+              <motion.g
+                variants={coronaVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="850.1"
+                  cy="221.5"
+                  r="115.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="848.2"
+                  cy="221.5"
+                  r="79.7"
+                />
+                <circle
+                  opacity="0.1"
+                  fill="#FEFEDE"
+                  cx="848.2"
+                  cy="221.5"
+                  r="47.2"
+                />
+              </motion.g>
             </motion.g>
-          </motion.g>
+          )}
         </g>
       </motion.g>
     </svg>
