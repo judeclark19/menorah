@@ -1,6 +1,6 @@
 # Virtual Menorah
 
-A menorah to share on your screen while celebrating Zoom Hanukkah. Click the buttons to 'light' the corresponding candles.
+A menorah to share on your screen while celebrating Zoom Hanukkah. Click on a holder to place a candle in that spot. Click on the candle to light it.
 
 Click to launch: https://spacial-fray-menorah.netlify.app
 
