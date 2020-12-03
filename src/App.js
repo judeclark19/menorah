@@ -61,7 +61,9 @@ function App() {
         animate={{ opacity: 1, transition: { duration: 2 } }}
       >
         <h1>חַג חֲנוּכָּה שַׂמֵחַ</h1>
-
+        <p className="instructions">
+          Click on a base to place a candle. Click a candle to light it.
+        </p>
         <Menorah
           numberLit={numberLit}
           setNumberLit={setNumberLit}
@@ -160,9 +162,6 @@ function App() {
             <span id="clear-btn">Clear all candles</span>
           </StyledButton>
 
-          <p className="instructions">
-            Click on a base to place a candle. Click a candle to light it.
-          </p>
           <p>
             Created by <a href="https://github.com/judeclark19">Jude Clark</a>
           </p>

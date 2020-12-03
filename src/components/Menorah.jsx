@@ -21,8 +21,8 @@ const coronaVariants = {
     transition: { delay: 0.3, duration: 2 },
   },
   flickering: {
-    scale: [1, 1.05, 0.95, 0.9, 1, 1.1, 0.9],
-    transition: { yoyo: Infinity, duration: 0.8 },
+    scale: [1, 1.05, 0.95, 0.9, 1, 1.05, 0.95],
+    transition: { yoyo: Infinity, duration: 1 },
   },
 };
 
@@ -31,7 +31,7 @@ const flameVariants = {
   visible: { scale: 1, opacity: 1, transition: { duration: 2 } },
   flickering: {
     scale: [1, 1.05, 0.95, 0.9, 1, 1.1, 0.9],
-    transition: { yoyo: Infinity, duration: 0.8 },
+    transition: { yoyo: Infinity, duration: 1 },
   },
 };
 
