@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 //Components
 import styled from "styled-components";
 import Menorah from "./components/Menorah";
-import Modal from "./components/Modal";
-import information from "./components/information.svg";
 
 function App() {
   const [numberLit, setNumberLit] = useState(0);
@@ -62,17 +60,6 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 2 } }}
       >
-        {/* <img
-          id="info-icon"
-          onClick={() => {
-            setShowModal(true);
-          }}
-          src={information}
-          alt="click for info"
-        ></img>
-        {showModal && (
-          <Modal showModal={showModal} setShowModal={setShowModal} />
-        )} */}
         <h1>חַג חֲנוּכָּה שַׂמֵחַ</h1>
 
         <Menorah
@@ -138,138 +125,8 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
         >
-          {/* <StyledButton
-            className={candle8Presence ? "active-btn" : ""}
-            onClick={() => {
-              setCandle8Presence(!candle8Presence);
-              if (candle8Lit) {
-                setCandle8Lit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            ח<br />
-            <span>8</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            className={candle7Presence ? "active-btn" : ""}
-            onClick={() => {
-              setCandle7Presence(!candle7Presence);
-              if (candle7Lit) {
-                setCandle7Lit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            ז<br />
-            <span>7</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            className={candle6Presence ? "active-btn" : ""}
-            onClick={() => {
-              setCandle6Presence(!candle6Presence);
-              if (candle6Lit) {
-                setCandle6Lit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            ו<br />
-            <span>6</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            className={candle5Presence ? "active-btn" : ""}
-            onClick={() => {
-              setCandle5Presence(!candle5Presence);
-              if (candle5Lit) {
-                setCandle5Lit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            ה<br />
-            <span>5</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            className={candle4Presence ? "active-btn" : ""}
-            onClick={() => {
-              setCandle4Presence(!candle4Presence);
-              if (candle4Lit) {
-                setCandle4Lit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            ד<br />
-            <span>4</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            className={candle3Presence ? "active-btn" : ""}
-            onClick={() => {
-              setCandle3Presence(!candle3Presence);
-              if (candle3Lit) {
-                setCandle3Lit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            ג<br />
-            <span>3</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            className={candle2Presence ? "active-btn" : ""}
-            onClick={() => {
-              setCandle2Presence(!candle2Presence);
-              if (candle2Lit) {
-                setCandle2Lit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            ב<br />
-            <span>2</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            className={candle1Presence ? "active-btn" : ""}
-            onClick={() => {
-              setCandle1Presence(!candle1Presence);
-              if (candle1Lit) {
-                setCandle1Lit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            א<br />
-            <span>1</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            // className={candlesLit === 0 ? "active-btn" : ""}
-            onClick={() => {
-              setCandlesLit(0);
-            }}
-          >
-            אפס
-            <br />
-            <span>0</span>
-          </StyledButton> */}
-          {/* <StyledButton
-            className={shamashPresence ? "active-btn" : ""}
-            onClick={() => {
-              setShamashPresence(!shamashPresence);
-              if (shamashLit) {
-                setShamashLit(false);
-                setNumberLit(numberLit - 1);
-              }
-            }}
-          >
-            שמש <br />
-            <span>Shamash</span>
-          </StyledButton> */}
-
           <StyledButton
-            // className={candlesLit === 0 ? "active-btn" : ""}
             onClick={() => {
-              console.log("clear btn");
               setNumberLit(0);
               setShamashPresence(false);
               setShamashLit(false);
@@ -349,14 +206,6 @@ const BodyDiv = styled(motion.div)`
       /* margin-top: -1rem; */
       font-size: 3rem;
     }
-  }
-
-  #info-icon {
-    position: fixed;
-    top: 3rem;
-    left: 3rem;
-    height: 30px;
-    cursor: pointer;
   }
 
   p {

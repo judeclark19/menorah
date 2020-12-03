@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./Menorah.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 //Variants
 const containerVariants = {
