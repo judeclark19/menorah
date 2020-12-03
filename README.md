@@ -4,10 +4,12 @@ A menorah to share on your screen while celebrating Zoom Hanukkah. Click on a ho
 
 Click to launch: https://spacial-fray-menorah.netlify.app
 
-![Image of Yaktocat](./README_images/readme_ss.png)
+![Menorah set for night 3 of Hanukkah](./README_images/readme_ss.png)
 
 ### Credits
 
 Menorah SVG: <a href="https://www.vecteezy.com/free-vector/menorah">Menorah Vectors by Vecteezy</a>
 
 Info icon by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
