@@ -62,7 +62,8 @@ function App() {
       >
         <h1>חַג חֲנוּכָּה שַׂמֵחַ</h1>
         <p className="instructions">
-          Click on a base to place a candle. Click a candle to light it.
+          Click on a base to place a candle. <br />
+          Click a candle to light it.
         </p>
         <Menorah
           numberLit={numberLit}
